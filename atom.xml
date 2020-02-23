@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-22T12:50:37.667Z</updated>
+  <updated>2020-02-23T06:24:44.715Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,9 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>New Post</title>
+    <link href="http://yoursite.com/uncategorized/2020/ck6ynjti20000fsk64nr9hko2/"/>
+    <id>http://yoursite.com/uncategorized/2020/ck6ynjti20000fsk64nr9hko2/</id>
+    <published>2020-02-23T06:21:12.000Z</published>
+    <updated>2020-02-23T06:24:44.715Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这是第一篇日志，没有内容&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/uncategorized/2020/ck6yj0b0d0000t0k68zpw4g8s/"/>
-    <id>http://yoursite.com/uncategorized/2020/ck6yj0b0d0000t0k68zpw4g8s/</id>
+    <link href="http://yoursite.com/uncategorized/2020/ck6ynjti90001fsk61aa4ehgm/"/>
+    <id>http://yoursite.com/uncategorized/2020/ck6ynjti90001fsk61aa4ehgm/</id>
     <published>2020-02-22T12:50:37.667Z</published>
     <updated>2020-02-22T12:50:37.667Z</updated>
     
