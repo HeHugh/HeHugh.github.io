@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>博客雏形</title>
+    <url>/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/ck6yyme9p00005ok6fj5jaiyl/</url>
+    <content><![CDATA[<p>太不容易了TAT<br>花了一整天时间，终于搭建好了一个博客雏形，node.js + git + hexo结构，用github + gitee代理并国内外分流<br>主题采用大佬写的ayer（简单点来说，大佬做好了一切，我抄了这么久…..）</p>
+<a id="more"></a>
+<p style = "background: PowderBlue;text-align: center;">遇到了几个坑：</p>
+1、nodejs:<br>
+    由于node.js是以前配置的，可能没有配置好。导致在hexo下载后，init一直失败，报错async remove(item)<br>网上说现在国内的hexo源有问题，但是我换了好几个源还是没有解决问题。最后才想到是不是node.js配置有问题或者是版本太低，于是就去官网下载了最新版的Nodejs
+    （注意！Windows版本不能使用命令升级nodejs，只能去官网下载最新版本，然后同目录覆盖安装）<br>
+    下载完之后就成功hexo init了<br>
+2、hexo不解释三连：<br>
+    在init成功后，我去换了ayer主题，然后开开心心地去看自己的网页~~~发现......<br>
+    不仅主题没换，甚至我的title，author什么的都没换！！！<br>
+    心态爆炸！！！<br>
+    然后处理了好久才知道...我看的是github上代理的网站，我的修改在本地，还没上传.....<br>
+    于是深深记住了不解释连招：hexo clean（清除缓存) hexo g（generate，也就是继承） hexo d（deploy 部署）<br>
+    再去github的代理商看，好了，我真机智<br>
+3、本地修改：<br>
+    机智个锤子哦！<br>
+    为什么要每次都部署到网站再去看成效？？？直接在本地看，它不香吗？<br>
+    于是，再开一个git bash，把hexo server挂着<br>
+    用另一个git bash进行其他操作，打开localhost:4000，之后的修改刷新就能看见了<br>
+4、分流:<br>
+    虽然github代理这一步完成得还是比较顺利，但是测试起来，这网速....确实不敢恭维<br>
+    （导致还去用vps配了个ss翻墙，网速同样不敢恭维，延迟一般在100-200ms，但是进网站加载速度太慢，看油管都费劲。不过还好，我主要用来下东西，它下载速度还挺令我开心，现在下的都是1s内完成，预测速度40+m/s）<br>
+    然后看教程，推荐分流代理，国内有coding，gitee用得比较多。coding跳转有广告，交钱或者给他打宣传就可以省去广告<br>
+    于是国内选择了gitee<br>
+5、gitee：<br>
+    使用了gitee后，又被坑了....<br>
+    第一个：秘钥...原来，秘钥还有公用和私用啊...添加的秘钥在gitee里，默认是公用（只能看），但是右上角有提示去添加私用的（能读能写）<br>
+    第二个：说好的仓库名随便的！结果仓库名和Pages服务有关，如果和用户名不一样，又要配置什么root之类的。<br>
+    开始傻乎乎的把Pages服务的url复制上去了，然后只有index传上去了，外联的图片、css和js什么都没，又傻了。<br>
+    结果将仓库名和存储地址改为用户名，relo地方写仓库的pull的SSH就好了<br>
+    <font color=red size=3>注意：每次的gitee部署完之后，要去gitee的Pages里面手动更新一下</font><br>
+<p style = "background: PowderBlue;text-align: center;">上一部分结束啦</p>
+现在博客字体什么的又不太熟悉了，还得去看看css和html教程咯]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>纪念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Test 2</title>
+    <url>/me/2020/ck6yyme9v00025ok64d3h1g2p/</url>
+    <content><![CDATA[<p>测试categories和tags</p>
+]]></content>
+      <categories>
+        <category>me</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Test 1</title>
-    <url>/me/2020/ck6yu7jyc0000a8k64dzq15sd/</url>
+    <url>/test/2020/2020/ck6yymea000065ok610mfheok/</url>
     <content><![CDATA[<p>这是第一篇日志，没有内容</p>
 ]]></content>
       <categories>
+        <category>me</category>
         <category>test</category>
         <category>2020</category>
-        <category>me</category>
       </categories>
       <tags>
         <tag>test</tag>

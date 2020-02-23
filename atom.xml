@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-23T07:05:34.107Z</updated>
+  <updated>2020-02-23T11:38:53.232Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,60 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>博客雏形</title>
+    <link href="http://yoursite.com/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/ck6yyme9p00005ok6fj5jaiyl/"/>
+    <id>http://yoursite.com/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/ck6yyme9p00005ok6fj5jaiyl/</id>
+    <published>2020-02-23T10:48:50.000Z</published>
+    <updated>2020-02-23T11:38:53.232Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;太不容易了TAT&lt;br&gt;花了一整天时间，终于搭建好了一个博客雏形，node.js + git + hexo结构，用github + gitee代理并国内外分流&lt;br&gt;主题采用大佬写的ayer（简单点来说，大佬做好了一切，我抄了这么久…..）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="纪念" scheme="http://yoursite.com/tags/%E7%BA%AA%E5%BF%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Test 2</title>
+    <link href="http://yoursite.com/me/2020/ck6yyme9v00025ok64d3h1g2p/"/>
+    <id>http://yoursite.com/me/2020/ck6yyme9v00025ok64d3h1g2p/</id>
+    <published>2020-02-23T10:32:24.000Z</published>
+    <updated>2020-02-23T10:33:35.264Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;测试categories和tags&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+      <category term="me" scheme="http://yoursite.com/categories/me/"/>
+    
+    
+      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Test 1</title>
-    <link href="http://yoursite.com/me/2020/ck6yu7jyc0000a8k64dzq15sd/"/>
-    <id>http://yoursite.com/me/2020/ck6yu7jyc0000a8k64dzq15sd/</id>
+    <link href="http://yoursite.com/test/2020/2020/ck6yymea000065ok610mfheok/"/>
+    <id>http://yoursite.com/test/2020/2020/ck6yymea000065ok610mfheok/</id>
     <published>2020-02-23T06:21:12.000Z</published>
-    <updated>2020-02-23T07:05:34.107Z</updated>
+    <updated>2020-02-23T10:38:47.527Z</updated>
     
     <summary type="html">
     
@@ -37,11 +86,11 @@
     </summary>
     
     
+      <category term="me" scheme="http://yoursite.com/categories/me/"/>
+    
       <category term="test" scheme="http://yoursite.com/categories/test/"/>
     
       <category term="2020" scheme="http://yoursite.com/categories/test/2020/"/>
-    
-      <category term="me" scheme="http://yoursite.com/categories/me/"/>
     
     
       <category term="test" scheme="http://yoursite.com/tags/test/"/>
