@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>博客雏形</title>
-    <url>/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/ck6yyme9p00005ok6fj5jaiyl/</url>
+    <url>/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/ck6z27d7r0006j0k6719n2386/</url>
     <content><![CDATA[<p>太不容易了TAT<br>花了一整天时间，终于搭建好了一个博客雏形，node.js + git + hexo结构，用github + gitee代理并国内外分流<br>主题采用大佬写的ayer（简单点来说，大佬做好了一切，我抄了这么久…..）</p>
 <a id="more"></a>
 <p style = "background: PowderBlue;text-align: center;">遇到了几个坑：</p>
@@ -45,7 +45,7 @@
   </entry>
   <entry>
     <title>Test 2</title>
-    <url>/me/2020/ck6yyme9v00025ok64d3h1g2p/</url>
+    <url>/me/2020/ck6z27d7c0000j0k61ki17xta/</url>
     <content><![CDATA[<p>测试categories和tags</p>
 ]]></content>
       <categories>
@@ -57,7 +57,7 @@
   </entry>
   <entry>
     <title>Test 1</title>
-    <url>/test/2020/2020/ck6yymea000065ok610mfheok/</url>
+    <url>/test/2020/2020/ck6z27d7l0002j0k6bnb3ehc1/</url>
     <content><![CDATA[<p>这是第一篇日志，没有内容</p>
 ]]></content>
       <categories>
