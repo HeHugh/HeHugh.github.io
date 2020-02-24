@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">827字</span>
+            <span class="post-count">872字</span>
         </span>
     </span>
 
@@ -100,9 +100,11 @@
       
       <p>此文效果全部用Html</p>
 <p style = "background: PowderBlue;text-align: center;">博客撰文</p>
+
 <p style = "font-size: 25px">
-对于md文件中的每一行文字，文章解析时会以回车符分隔，一个回车符代表看做一串文字结束，用一个&lt;p&gt;来存储，放进html中。如果添加了html标签，对于回车符，好像就不能判断了，所有文字将展示为一行，只能自己手动用&lt;br&gt;进行空行<br>
-所以，主要思想：在md里添加html标签，标签内嵌css</p>
+（猜测：对于md文件中的每一行文字，文章解析时会以回车符分隔，一个回车符代表看做一串文字结束，用一个&lt;p&gt;来存储，放进html中。如果添加了html标签，对于回车符，好像就不能判断了，所有文字将展示为一行，只能自己手动用&lt;br&gt;进行空行）<br>
+其实是md语法对html内容不生效，只要遵循md的段落规则就可以实现md兼容html（段落之间用空行分隔），不用手动br<br>
+此处，主要思想：在md里添加html标签，标签内嵌css</p>
 <a id="more"></a>
 <font size=4 color="red">大小、颜色与样式：</font>
 用"&lt;font size=4 color="red"&gt;&lt;/font&gt;"（效果为“大小、颜色与样式”）<br>

@@ -44,15 +44,17 @@
     <link href="http://yoursite.com/Hexo%E5%8D%9A%E5%AE%A2/2020/1/"/>
     <id>http://yoursite.com/Hexo%E5%8D%9A%E5%AE%A2/2020/1/</id>
     <published>2020-02-24T03:28:40.000Z</published>
-    <updated>2020-02-24T07:09:09.071Z</updated>
+    <updated>2020-02-24T13:36:44.256Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;此文效果全部用Html&lt;/p&gt;
 &lt;p style = &quot;background: PowderBlue;text-align: center;&quot;&gt;博客撰文&lt;/p&gt;
+
 &lt;p style = &quot;font-size: 25px&quot;&gt;
-对于md文件中的每一行文字，文章解析时会以回车符分隔，一个回车符代表看做一串文字结束，用一个&amp;lt;p&amp;gt;来存储，放进html中。如果添加了html标签，对于回车符，好像就不能判断了，所有文字将展示为一行，只能自己手动用&amp;lt;br&amp;gt;进行空行&lt;br&gt;
-所以，主要思想：在md里添加html标签，标签内嵌css&lt;/p&gt;
+（猜测：对于md文件中的每一行文字，文章解析时会以回车符分隔，一个回车符代表看做一串文字结束，用一个&amp;lt;p&amp;gt;来存储，放进html中。如果添加了html标签，对于回车符，好像就不能判断了，所有文字将展示为一行，只能自己手动用&amp;lt;br&amp;gt;进行空行）&lt;br&gt;
+其实是md语法对html内容不生效，只要遵循md的段落规则就可以实现md兼容html（段落之间用空行分隔），不用手动br&lt;br&gt;
+此处，主要思想：在md里添加html标签，标签内嵌css&lt;/p&gt;
     
     </summary>
     
@@ -69,11 +71,11 @@
     <link href="http://yoursite.com/PAT/2020/A1013/"/>
     <id>http://yoursite.com/PAT/2020/A1013/</id>
     <published>2020-02-24T02:19:02.000Z</published>
-    <updated>2020-02-24T11:21:16.062Z</updated>
+    <updated>2020-02-24T13:39:42.818Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;font size=4 color=&quot;red&quot;&gt;因为要画图，所以搁置一下，美图镇楼&lt;/font&gt;&lt;br&gt;有向图、无向图与连通性、连通分量、连通图&lt;/p&gt;
+      &lt;p&gt;&lt;font size=4 color=&quot;red&quot;&gt;没画示意图，美图镇楼&lt;/font&gt;&lt;br&gt;有向图、无向图与连通性、连通分量、连通图&lt;/p&gt;
     
     </summary>
     

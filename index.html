@@ -186,9 +186,11 @@
       
       <p>此文效果全部用Html</p>
 <p style = "background: PowderBlue;text-align: center;">博客撰文</p>
+
 <p style = "font-size: 25px">
-对于md文件中的每一行文字，文章解析时会以回车符分隔，一个回车符代表看做一串文字结束，用一个&lt;p&gt;来存储，放进html中。如果添加了html标签，对于回车符，好像就不能判断了，所有文字将展示为一行，只能自己手动用&lt;br&gt;进行空行<br>
-所以，主要思想：在md里添加html标签，标签内嵌css</p>
+（猜测：对于md文件中的每一行文字，文章解析时会以回车符分隔，一个回车符代表看做一串文字结束，用一个&lt;p&gt;来存储，放进html中。如果添加了html标签，对于回车符，好像就不能判断了，所有文字将展示为一行，只能自己手动用&lt;br&gt;进行空行）<br>
+其实是md语法对html内容不生效，只要遵循md的段落规则就可以实现md兼容html（段落之间用空行分隔），不用手动br<br>
+此处，主要思想：在md里添加html标签，标签内嵌css</p>
       
       <a class="article-more-link" href="/Hexo%E5%8D%9A%E5%AE%A2/2020/1/">阅读更多...</a>
       
@@ -263,7 +265,7 @@
       
 
       
-      <p><font size=4 color="red">因为要画图，所以搁置一下，美图镇楼</font><br>有向图、无向图与连通性、连通分量、连通图</p>
+      <p><font size=4 color="red">没画示意图，美图镇楼</font><br>有向图、无向图与连通性、连通分量、连通图</p>
       
       <a class="article-more-link" href="/PAT/2020/A1013/">阅读更多...</a>
       
