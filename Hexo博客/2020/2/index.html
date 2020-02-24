@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    博客雏形 |  my blog
+    Hexo撰文2 |  朩
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -23,7 +23,7 @@
 
   
 
-<link rel="alternate" href="/atom.xml" title="my blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="朩" type="application/atom+xml">
 </head>
 
 </html>
@@ -32,7 +32,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-finish" class="article article-type-post" itemscope
+  <article id="post-markdown" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -40,7 +40,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  博客雏形
+  Hexo撰文2
 </h1>
   
 
@@ -49,12 +49,12 @@
 
     
     <div class="article-meta">
-      <a href="/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/ck6z27d7r0006j0k6719n2386/" class="article-date">
-  <time datetime="2020-02-23T10:48:50.000Z" itemprop="datePublished">2020-02-23</time>
+      <a href="/Hexo%E5%8D%9A%E5%AE%A2/2020/2/" class="article-date">
+  <time datetime="2020-02-24T04:57:56.000Z" itemprop="datePublished">2020-02-24</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a>
+    <a class="article-category-link" href="/categories/Hexo%E5%8D%9A%E5%AE%A2/">Hexo博客</a>
   </div>
 
       
@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">827字</span>
+            <span class="post-count">1.7k字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2分钟</span>
+            <span class="post-count">5分钟</span>
         </span>
     </span>
 </div>
@@ -84,6 +84,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -98,39 +100,161 @@
       
 
       
-      <p>太不容易了TAT<br>花了一整天时间，终于搭建好了一个博客雏形，node.js + git + hexo结构，用github + gitee代理并国内外分流<br>主题采用大佬写的ayer（简单点来说，大佬做好了一切，我抄了这么久…..）</p>
+      <p>上文是讲的通过html直接修改文字效果，其实我们可以直接用markdown语法做其中部分处理，写起来会更为简洁<br>此文效果全部用Markdown语法，只写些常用的（就是懒！），效果图主要看字面意思+想象力（不想写太长๑Ő௰Ő๑）</p>
 <a id="more"></a>
-<p style = "background: PowderBlue;text-align: center;">遇到了几个坑：</p>
-1、nodejs:<br>
-    由于node.js是以前配置的，可能没有配置好。导致在hexo下载后，init一直失败，报错async remove(item)<br>网上说现在国内的hexo源有问题，但是我换了好几个源还是没有解决问题。最后才想到是不是node.js配置有问题或者是版本太低，于是就去官网下载了最新版的Nodejs
-    （注意！Windows版本不能使用命令升级nodejs，只能去官网下载最新版本，然后同目录覆盖安装）<br>
-    下载完之后就成功hexo init了<br>
-2、hexo不解释三连：<br>
-    在init成功后，我去换了ayer主题，然后开开心心地去看自己的网页~~~发现......<br>
-    不仅主题没换，甚至我的title，author什么的都没换！！！<br>
-    心态爆炸！！！<br>
-    然后处理了好久才知道...我看的是github上代理的网站，我的修改在本地，还没上传.....<br>
-    于是深深记住了不解释连招：hexo clean（清除缓存) hexo g（generate，也就是继承） hexo d（deploy 部署）<br>
-    再去github的代理商看，好了，我真机智<br>
-3、本地修改：<br>
-    机智个锤子哦！<br>
-    为什么要每次都部署到网站再去看成效？？？直接在本地看，它不香吗？<br>
-    于是，再开一个git bash，把hexo server挂着<br>
-    用另一个git bash进行其他操作，打开localhost:4000，之后的修改刷新就能看见了<br>
-4、分流:<br>
-    虽然github代理这一步完成得还是比较顺利，但是测试起来，这网速....确实不敢恭维<br>
-    （导致还去用vps配了个ss翻墙，网速同样不敢恭维，延迟一般在100-200ms，但是进网站加载速度太慢，看油管都费劲。不过还好，我主要用来下东西，它下载速度还挺令我开心，现在下的都是1s内完成，预测速度40+m/s）<br>
-    然后看教程，推荐分流代理，国内有coding，gitee用得比较多。coding跳转有广告，交钱或者给他打宣传就可以省去广告<br>
-    于是国内选择了gitee<br>
-5、gitee：<br>
-    使用了gitee后，又被坑了....<br>
-    第一个：秘钥...原来，秘钥还有公用和私用啊...添加的秘钥在gitee里，默认是公用（只能看），但是右上角有提示去添加私用的（能读能写）<br>
-    第二个：说好的仓库名随便的！结果仓库名和Pages服务有关，如果和用户名不一样，又要配置什么root之类的。<br>
-    开始傻乎乎的把Pages服务的url复制上去了，然后只有index传上去了，外联的图片、css和js什么都没，又傻了。<br>
-    结果将仓库名和存储地址改为用户名，relo地方写仓库的pull的SSH就好了<br>
-    <font color=red size=3>注意：每次的gitee部署完之后，要去gitee的Pages里面手动更新一下</font><br>
-<p style = "background: PowderBlue;text-align: center;">上一部分结束啦</p>
-现在博客字体什么的又不太熟悉了，还得去看看css和html教程咯
+<h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h1><p>Markdown是一种纯文本格式的标记语言（类似XML哦），利用一些简单语法就可以实现文章的排版变化，让使用者可以把更多注意力放在内容上</p>
+<h2 id="一、-标题和目录"><a href="#一、-标题和目录" class="headerlink" title="一、 标题和目录"></a>一、 标题和目录</h2><p>#后<strong>加空格</strong>再加文字内容，就可以实现标题，一个警号代表一级标题，最多支持六级标题。</p>
+<p>当然，没有规定预定要从一级标题开始设置，标题级别主要影响字体大小，可以按需来<br>之后，Markdown会根据标题生成目录，目录就可以精确定位到某个标题</p>
+<h2 id="二、-字体设置"><a href="#二、-字体设置" class="headerlink" title="二、 字体设置"></a>二、 字体设置</h2><h3 id="1-斜体"><a href="#1-斜体" class="headerlink" title="1. 斜体"></a>1. 斜体</h3><pre><code>*要设置为斜体的内容*（不要空格,星号可以用下划线_代替）</code></pre><p><em>要设置为斜体的内容</em>（不要空格,星号可以用下划线_代替）</p>
+<h3 id="2-加粗"><a href="#2-加粗" class="headerlink" title="2. 加粗"></a>2. 加粗</h3><pre><code>**要设置为加粗的内容**（不要空格,星号可以用下划线_代替）</code></pre><p><strong>要设置为加粗的内容</strong>（不要空格,星号可以用下划线_代替）</p>
+<h3 id="3-斜体加粗"><a href="#3-斜体加粗" class="headerlink" title="3. 斜体加粗"></a>3. 斜体加粗</h3><pre><code>显而易见咯，用三个* 包裹起来就行了. ***要设置为斜体加粗的内容***（不要空格,星号可以用下划线_代替）</code></pre><p><strong><em>要设置为斜体加粗的内容</em></strong>（不要空格,星号可以用下划线_代替）</p>
+<h3 id="4-删除线"><a href="#4-删除线" class="headerlink" title="4. 删除线"></a>4. 删除线</h3><pre><code>~~要添加删除线的内容~~（不要空格）</code></pre><p><del>要添加删除线的内容</del>（不要空格）</p>
+<h2 id="三、-分隔线"><a href="#三、-分隔线" class="headerlink" title="三、 分隔线"></a>三、 分隔线</h2><pre><code>三个连续的星号、减号、下划线，都可以作为分隔行,但是这一行不能有其他的内容   ***   ---   ___</code></pre><hr>
+<h2 id="四、-插入"><a href="#四、-插入" class="headerlink" title="四、 插入"></a>四、 插入</h2><h3 id="1-代码"><a href="#1-代码" class="headerlink" title="1. 代码"></a>1. 代码</h3><p>网上说用单引号&apos;单行代码&apos;包裹起来</p>
+<p>&apos;&apos;&apos;<br>第一行代码<br>第二行代码（行数无限制）（三个引号单独占一行）<br>&apos;&apos;&apos;</p>
+<p>但是好像不是很适用与md本身的一些代码，比如加粗之类的</p>
+<p>于是还是用<strong>最简单直接的：在行首用tab或4个空格</strong>，申请一行不编译（可加行），背景色为深灰色，上面都是这种方式</p>
+<h3 id="2-引用"><a href="#2-引用" class="headerlink" title="2. 引用"></a>2. 引用</h3><p>在一段的行首，使用大于号&gt;表明一个区块，后直接加内容就可以（不用空格），一个表示一级分区（好像无分区上限）</p>
+<blockquote>
+<p>区块1</p>
+<blockquote>
+<p>区块1.1</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>区块1.1.1.1.1.1.1.1.1.1</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="3-超链接"><a href="#3-超链接" class="headerlink" title="3. 超链接"></a>3. 超链接</h3><p><strong>超链接都是在当前界面打开，如果要在新界面打开，请使用html的a标签</strong></p>
+<h4 id="3-1-行内式"><a href="#3-1-行内式" class="headerlink" title="3.1 行内式"></a>3.1 行内式</h4><pre><code>[超链接名字](超链接地址 &quot;optional title（选填，鼠标移动到到超链接上显示的内容）&quot;)
+
+eg:
+[朩的微博](heoah.com &quot;他的主页&quot;)</code></pre><p><a href="heoah.com" title="他的主页">朩的微博</a></p>
+<h4 id="3-2-参考式"><a href="#3-2-参考式" class="headerlink" title="3.2 参考式"></a>3.2 参考式</h4><p>试了下好像没用..可能是博客或者代理用的md解析不一样吧</p>
+<pre><code>[超链接名字][标号]
+[标号]:超链接地址 / &quot;optional title（选填，鼠标移动到到超链接上显示的内容）&quot;
+
+eg:
+[朩的微博][1]
+[1]:heoah.com</code></pre><h3 id="4-图片"><a href="#4-图片" class="headerlink" title="4. 图片"></a>4. 图片</h3><p>和本质上和超链接是一样的，在超链接前面加个！就行了</p>
+<h4 id="4-1-引用地址为网址"><a href="#4-1-引用地址为网址" class="headerlink" title="4.1 引用地址为网址"></a>4.1 引用地址为网址</h4><p>本地图片获得URL：使用图床进行存储图片。简单点说：上传你的图片给网站，网站给你分配存储空间，针对每张图片给你一个url，你直接引用url。<br>github，gitee等都有图床服务，推荐 七牛云</p>
+<h4 id="4-2-引用为本地图片"><a href="#4-2-引用为本地图片" class="headerlink" title="4.2 引用为本地图片"></a>4.2 引用为本地图片</h4><p>在_config.yml设置里面post_asset_folder设置为true</p>
+<p>这样在每次new post时就会在生成md文件时，同时生成一个同名的文件夹</p>
+<p>安装hexo-asset-image插件:</p>
+<pre><code>npm install hexo-asset-imagine --save</code></pre><p>将图片放在文件夹，命名例如1.png</p>
+<pre><code>![名字（点击后出现图片，一般留空）](md文件名/图片名)
+
+eg:
+![](index/1.png)</code></pre><h2 id="五、-表"><a href="#五、-表" class="headerlink" title="五、 表"></a>五、 表</h2><h3 id="1-列表"><a href="#1-列表" class="headerlink" title="1. 列表"></a>1. 列表</h3><p><strong>在列表内容里面引用代码，用Tab或者4个空格是不阔冷滴！因为都是在行首操作</strong></p>
+<h5 id="1-1-无序列表"><a href="#1-1-无序列表" class="headerlink" title="1.1 无序列表"></a>1.1 无序列表</h5><p>在行首用符号进行定义</p>
+<pre><code>+ 列表内容 （加号后必须要空格）（加号可以用减号- 乘号*代替）
+
+eg:
++ 第三行
+- 第二行
+* 第一行</code></pre><ul>
+<li>第三行</li>
+</ul>
+<ul>
+<li>第二行</li>
+</ul>
+<ul>
+<li>第一行</li>
+</ul>
+<h4 id="1-2-有序列表"><a href="#1-2-有序列表" class="headerlink" title="1.2 有序列表"></a>1.2 有序列表</h4><p>在行首用数字加小数点定义（数字一定要为非负整数）</p>
+<pre><code>标号. 列表内容（小数点后必须要空格）
+
+eg:
+1. 如果你的序号为负数，那么会认为你的有序链表到此已经结束。
+4. 第一行的序号很重要，定义了你列表的开始序号
+8. 后面行的序号都是根据第一行数字递增1得到的</code></pre><ol>
+<li>如果你的序号为负数，那么会认为你的有序链表到此已经结束。</li>
+<li>第一行的序号很重要，定义了你列表的开始序号</li>
+<li>后面行的序号都是根据第一行数字递增1得到的</li>
+</ol>
+<h4 id="1-3-组合列表"><a href="#1-3-组合列表" class="headerlink" title="1.3 组合列表"></a>1.3 组合列表</h4><p>也可以成为 列表嵌套</p>
+<p>有序列表和无序列表可以随意组合嵌套，上一级和下一级之间用三个空格区别</p>
+<pre><code>eg:
++ 一级无序
+   1. 二级有序
++ 一级无序
+   + 二级无序
+1. 一级有序
+   + 二级无序
+2. 一级有序
+   1. 二级有序</code></pre><ul>
+<li>一级无序<ol>
+<li>二级有序</li>
+<li>二级有序</li>
+</ol>
+</li>
+<li>一级无序<ul>
+<li>二级无序</li>
+<li>二级无序</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>一级有序<ul>
+<li>二级无序</li>
+</ul>
+</li>
+<li>一级有序<ol>
+<li>二级有序</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-表格"><a href="#2-表格" class="headerlink" title="2. 表格"></a>2. 表格</h3><pre><code>表头|表头|表头        （自定义列数都可以）
+:-|:-:|-:            （ - 表示内容）（：表示对齐方式，左边代表左对齐，右边代表右对齐，两边都有表示居中对齐）
+内容|内容|内容
+
+eg:
+姓名|性别|年龄
+:-|:-:|-:
+张三|男|15
+李四|女|16
+王五|男|17</code></pre><table>
+<thead>
+<tr>
+<th align="left">姓名</th>
+<th align="center">性别</th>
+<th align="right">年龄</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">张三</td>
+<td align="center">男</td>
+<td align="right">15</td>
+</tr>
+<tr>
+<td align="left">李四</td>
+<td align="center">女</td>
+<td align="right">16</td>
+</tr>
+<tr>
+<td align="left">王五</td>
+<td align="center">男</td>
+<td align="right">17</td>
+</tr>
+</tbody></table>
+<h2 id="六、-小结"><a href="#六、-小结" class="headerlink" title="六、 小结"></a>六、 小结</h2><p>总的来说，使用Markdown语法确实比较简单，而且看起来更为美观。它兼容HTML格式，且由于它是纯文本，跨平台性也更好。</p>
+<p>段落前后要求有空行（无文字内容）</p>
+<p>看起来大方简洁，直观舒服。设置字体颜色还是用font（虽然我老感觉这是HTML语法）</p>
+<p><font size=2 color="00AAAA">但是我还是不喜欢用，噜啦啦啦啦啦(//∇//)！因为它显得太松散了，其中一部分功能可能会用，但更多可能还是喜欢直接用html</font></p>
+
       
       <!-- reward -->
       
@@ -142,7 +266,7 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BA%AA%E5%BF%B5/" rel="tag">纪念</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo%E4%BD%BF%E7%94%A8/" rel="tag">Hexo使用</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
 
 
     </footer>
@@ -154,9 +278,9 @@
   <nav class="article-nav">
     
     
-      <a href="/me/2020/ck6z27d7c0000j0k61ki17xta/" class="article-nav-link">
+      <a href="/Hexo%E5%8D%9A%E5%AE%A2/2020/1/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Test 2</div>
+        <div class="article-nav-title">Hexo撰文1</div>
       </a>
     
   </nav>
@@ -264,7 +388,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/heikati.jpg" alt="my blog"></a>
+    <a href="/"><img src="/images/heikati.jpg" alt="朩"></a>
   </div>
   
   <ul class="nav nav-main">

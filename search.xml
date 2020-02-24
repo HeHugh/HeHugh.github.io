@@ -1,8 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo撰文2</title>
+    <url>/Hexo%E5%8D%9A%E5%AE%A2/2020/2/</url>
+    <content><![CDATA[<p>上文是讲的通过html直接修改文字效果，其实我们可以直接用markdown语法做其中部分处理，写起来会更为简洁<br>此文效果全部用Markdown语法，只写些常用的（就是懒！），效果图主要看字面意思+想象力（不想写太长๑Ő௰Ő๑）</p>
+<a id="more"></a>
+<h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h1><p>Markdown是一种纯文本格式的标记语言（类似XML哦），利用一些简单语法就可以实现文章的排版变化，让使用者可以把更多注意力放在内容上</p>
+<h2 id="一、-标题和目录"><a href="#一、-标题和目录" class="headerlink" title="一、 标题和目录"></a>一、 标题和目录</h2><p>#后<strong>加空格</strong>再加文字内容，就可以实现标题，一个警号代表一级标题，最多支持六级标题。</p>
+<p>当然，没有规定预定要从一级标题开始设置，标题级别主要影响字体大小，可以按需来<br>之后，Markdown会根据标题生成目录，目录就可以精确定位到某个标题</p>
+<h2 id="二、-字体设置"><a href="#二、-字体设置" class="headerlink" title="二、 字体设置"></a>二、 字体设置</h2><h3 id="1-斜体"><a href="#1-斜体" class="headerlink" title="1. 斜体"></a>1. 斜体</h3><pre><code>*要设置为斜体的内容*（不要空格,星号可以用下划线_代替）</code></pre><p><em>要设置为斜体的内容</em>（不要空格,星号可以用下划线_代替）</p>
+<h3 id="2-加粗"><a href="#2-加粗" class="headerlink" title="2. 加粗"></a>2. 加粗</h3><pre><code>**要设置为加粗的内容**（不要空格,星号可以用下划线_代替）</code></pre><p><strong>要设置为加粗的内容</strong>（不要空格,星号可以用下划线_代替）</p>
+<h3 id="3-斜体加粗"><a href="#3-斜体加粗" class="headerlink" title="3. 斜体加粗"></a>3. 斜体加粗</h3><pre><code>显而易见咯，用三个* 包裹起来就行了. ***要设置为斜体加粗的内容***（不要空格,星号可以用下划线_代替）</code></pre><p><strong><em>要设置为斜体加粗的内容</em></strong>（不要空格,星号可以用下划线_代替）</p>
+<h3 id="4-删除线"><a href="#4-删除线" class="headerlink" title="4. 删除线"></a>4. 删除线</h3><pre><code>~~要添加删除线的内容~~（不要空格）</code></pre><p><del>要添加删除线的内容</del>（不要空格）</p>
+<h2 id="三、-分隔线"><a href="#三、-分隔线" class="headerlink" title="三、 分隔线"></a>三、 分隔线</h2><pre><code>三个连续的星号、减号、下划线，都可以作为分隔行,但是这一行不能有其他的内容   ***   ---   ___</code></pre><hr>
+<h2 id="四、-插入"><a href="#四、-插入" class="headerlink" title="四、 插入"></a>四、 插入</h2><h3 id="1-代码"><a href="#1-代码" class="headerlink" title="1. 代码"></a>1. 代码</h3><p>网上说用单引号&apos;单行代码&apos;包裹起来</p>
+<p>&apos;&apos;&apos;<br>第一行代码<br>第二行代码（行数无限制）（三个引号单独占一行）<br>&apos;&apos;&apos;</p>
+<p>但是好像不是很适用与md本身的一些代码，比如加粗之类的</p>
+<p>于是还是用<strong>最简单直接的：在行首用tab或4个空格</strong>，申请一行不编译（可加行），背景色为深灰色，上面都是这种方式</p>
+<h3 id="2-引用"><a href="#2-引用" class="headerlink" title="2. 引用"></a>2. 引用</h3><p>在一段的行首，使用大于号&gt;表明一个区块，后直接加内容就可以（不用空格），一个表示一级分区（好像无分区上限）</p>
+<blockquote>
+<p>区块1</p>
+<blockquote>
+<p>区块1.1</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>区块1.1.1.1.1.1.1.1.1.1</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="3-超链接"><a href="#3-超链接" class="headerlink" title="3. 超链接"></a>3. 超链接</h3><p><strong>超链接都是在当前界面打开，如果要在新界面打开，请使用html的a标签</strong></p>
+<h4 id="3-1-行内式"><a href="#3-1-行内式" class="headerlink" title="3.1 行内式"></a>3.1 行内式</h4><pre><code>[超链接名字](超链接地址 &quot;optional title（选填，鼠标移动到到超链接上显示的内容）&quot;)
+
+eg:
+[朩的微博](heoah.com &quot;他的主页&quot;)</code></pre><p><a href="heoah.com" title="他的主页">朩的微博</a></p>
+<h4 id="3-2-参考式"><a href="#3-2-参考式" class="headerlink" title="3.2 参考式"></a>3.2 参考式</h4><p>试了下好像没用..可能是博客或者代理用的md解析不一样吧</p>
+<pre><code>[超链接名字][标号]
+[标号]:超链接地址 / &quot;optional title（选填，鼠标移动到到超链接上显示的内容）&quot;
+
+eg:
+[朩的微博][1]
+[1]:heoah.com</code></pre><h3 id="4-图片"><a href="#4-图片" class="headerlink" title="4. 图片"></a>4. 图片</h3><p>和本质上和超链接是一样的，在超链接前面加个！就行了</p>
+<h4 id="4-1-引用地址为网址"><a href="#4-1-引用地址为网址" class="headerlink" title="4.1 引用地址为网址"></a>4.1 引用地址为网址</h4><p>本地图片获得URL：使用图床进行存储图片。简单点说：上传你的图片给网站，网站给你分配存储空间，针对每张图片给你一个url，你直接引用url。<br>github，gitee等都有图床服务，推荐 七牛云</p>
+<h4 id="4-2-引用为本地图片"><a href="#4-2-引用为本地图片" class="headerlink" title="4.2 引用为本地图片"></a>4.2 引用为本地图片</h4><p>在_config.yml设置里面post_asset_folder设置为true</p>
+<p>这样在每次new post时就会在生成md文件时，同时生成一个同名的文件夹</p>
+<p>安装hexo-asset-image插件:</p>
+<pre><code>npm install hexo-asset-imagine --save</code></pre><p>将图片放在文件夹，命名例如1.png</p>
+<pre><code>![名字（点击后出现图片，一般留空）](md文件名/图片名)
+
+eg:
+![](index/1.png)</code></pre><h2 id="五、-表"><a href="#五、-表" class="headerlink" title="五、 表"></a>五、 表</h2><h3 id="1-列表"><a href="#1-列表" class="headerlink" title="1. 列表"></a>1. 列表</h3><p><strong>在列表内容里面引用代码，用Tab或者4个空格是不阔冷滴！因为都是在行首操作</strong></p>
+<h5 id="1-1-无序列表"><a href="#1-1-无序列表" class="headerlink" title="1.1 无序列表"></a>1.1 无序列表</h5><p>在行首用符号进行定义</p>
+<pre><code>+ 列表内容 （加号后必须要空格）（加号可以用减号- 乘号*代替）
+
+eg:
++ 第三行
+- 第二行
+* 第一行</code></pre><ul>
+<li>第三行</li>
+</ul>
+<ul>
+<li>第二行</li>
+</ul>
+<ul>
+<li>第一行</li>
+</ul>
+<h4 id="1-2-有序列表"><a href="#1-2-有序列表" class="headerlink" title="1.2 有序列表"></a>1.2 有序列表</h4><p>在行首用数字加小数点定义（数字一定要为非负整数）</p>
+<pre><code>标号. 列表内容（小数点后必须要空格）
+
+eg:
+1. 如果你的序号为负数，那么会认为你的有序链表到此已经结束。
+4. 第一行的序号很重要，定义了你列表的开始序号
+8. 后面行的序号都是根据第一行数字递增1得到的</code></pre><ol>
+<li>如果你的序号为负数，那么会认为你的有序链表到此已经结束。</li>
+<li>第一行的序号很重要，定义了你列表的开始序号</li>
+<li>后面行的序号都是根据第一行数字递增1得到的</li>
+</ol>
+<h4 id="1-3-组合列表"><a href="#1-3-组合列表" class="headerlink" title="1.3 组合列表"></a>1.3 组合列表</h4><p>也可以成为 列表嵌套</p>
+<p>有序列表和无序列表可以随意组合嵌套，上一级和下一级之间用三个空格区别</p>
+<pre><code>eg:
++ 一级无序
+   1. 二级有序
++ 一级无序
+   + 二级无序
+1. 一级有序
+   + 二级无序
+2. 一级有序
+   1. 二级有序</code></pre><ul>
+<li>一级无序<ol>
+<li>二级有序</li>
+<li>二级有序</li>
+</ol>
+</li>
+<li>一级无序<ul>
+<li>二级无序</li>
+<li>二级无序</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>一级有序<ul>
+<li>二级无序</li>
+</ul>
+</li>
+<li>一级有序<ol>
+<li>二级有序</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-表格"><a href="#2-表格" class="headerlink" title="2. 表格"></a>2. 表格</h3><pre><code>表头|表头|表头        （自定义列数都可以）
+:-|:-:|-:            （ - 表示内容）（：表示对齐方式，左边代表左对齐，右边代表右对齐，两边都有表示居中对齐）
+内容|内容|内容
+
+eg:
+姓名|性别|年龄
+:-|:-:|-:
+张三|男|15
+李四|女|16
+王五|男|17</code></pre><table>
+<thead>
+<tr>
+<th align="left">姓名</th>
+<th align="center">性别</th>
+<th align="right">年龄</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">张三</td>
+<td align="center">男</td>
+<td align="right">15</td>
+</tr>
+<tr>
+<td align="left">李四</td>
+<td align="center">女</td>
+<td align="right">16</td>
+</tr>
+<tr>
+<td align="left">王五</td>
+<td align="center">男</td>
+<td align="right">17</td>
+</tr>
+</tbody></table>
+<h2 id="六、-小结"><a href="#六、-小结" class="headerlink" title="六、 小结"></a>六、 小结</h2><p>总的来说，使用Markdown语法确实比较简单，而且看起来更为美观。它兼容HTML格式，且由于它是纯文本，跨平台性也更好。</p>
+<p>段落前后要求有空行（无文字内容）</p>
+<p>看起来大方简洁，直观舒服。设置字体颜色还是用font（虽然我老感觉这是HTML语法）</p>
+<p><font size=2 color="00AAAA">但是我还是不喜欢用，噜啦啦啦啦啦(//∇//)！因为它显得太松散了，其中一部分功能可能会用，但更多可能还是喜欢直接用html</font></p>
+]]></content>
+      <categories>
+        <category>Hexo博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo使用</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo撰文1</title>
+    <url>/Hexo%E5%8D%9A%E5%AE%A2/2020/1/</url>
+    <content><![CDATA[<p>此文效果全部用Html</p>
+<p style = "background: PowderBlue;text-align: center;">博客撰文</p>
+<p style = "font-size: 25px">
+对于md文件中的每一行文字，文章解析时会以回车符分隔，一个回车符代表看做一串文字结束，用一个&lt;p&gt;来存储，放进html中。如果添加了html标签，对于回车符，好像就不能判断了，所有文字将展示为一行，只能自己手动用&lt;br&gt;进行空行<br>
+所以，主要思想：在md里添加html标签，标签内嵌css</p>
+<a id="more"></a>
+<font size=4 color="red">大小、颜色与样式：</font>
+用"&lt;font size=4 color="red"&gt;&lt;/font&gt;"（效果为“大小、颜色与样式”）<br>
+可以设置字体的大小（默认为3，可为小数）；颜色（可以使用取色板颜色“#FFFFFF”或者“red”“blue”等）；样式（属性名为face）<br>
+<font size=4 color="red">背景、居中与样式等：</font>
+如果想修改更多属性，比如字体款式、背景颜色。建议自己定义一个&lt;p&gt;或者&lt;span&gt;&lt;li&gt;等标签（他们结束后，会自动产生一个回车符。后面加的一行文字就到下一行啦）<br>
+使用<a href="https://www.w3school.com.cn/html/html_styles.asp" target="_blank" rel="noopener">style</a>属性来修改（font比较方便，但是功能有限，style属性淘汰了旧的font属性）<br>
+&lt;p style = "background: PowderBlue;text-align: center;"&gt;（效果为“博客撰文”）<br>
+<font size=4 color="red">特殊字符：</font>如果想打这五个符号&quot; &apos; &amp; &lt; &gt;请记住，一定要用<a href="https://www.w3school.com.cn/html/html_entities.asp" target="_blank" rel="noopener">符号实体</a>。<br>
+常用六个：
+<li>&amp;quot;表示&quot;（双引号）</li>  
+<li>&amp;apos;表示&apos;（单引号）</li> 
+<li>&amp;amp;表示&amp; </li> 
+<li>&amp;lt;表示&lt;（小于号）</li>  
+<li>&amp;gt表示&gt;（大于号）</li> 
+<li>&amp;nbsp;表示空格（连续的空格符号会被解析为一个，所以要连续空格需要用实体名）</li> 
+<br>
+<font size=4 color="blue">注意font和style的区别：</font>
+<li>font里的属性为size，color，对应的值用=</li>
+<li>sytle是属性的集合，要用style=""。属性名与属性值的对应用冒号: 属性间用分号分隔; 。font-size要使用px（像素）作为单位</li>
+<p style = "background: PowderBlue;text-align: center;">结束啦</p><br>
+
+<p style = "background: #00AAAA;text-align: center;">引用</p>
+最为常见的引用也就是链接网址和插入图片了，链接网址比较容易，直接用&lt;a href=""&gt;就可以了。这里主要讲插入图片<br>
+插入图片直接用&lt;img src=""&gt;当然是没有问题的，但是要注意：<font size=3 color="red">插入的图片路径怎么写？</font><br>
+我在source文件夹下建立了一个名为img的文件夹专门存放图片<br>
+<li>主界面显示：由于文章的当前根目录为source文件夹，要读取下面的文件，直接src="img/1.png"就可以了</li>
+<li> 注意！如果图片路径直接写上面的那个，打开文章就会发现，图片无法显示“Not found in ***/***/”这时候就要关注_config.yml中的一个设置permalink:</li>
+<li>所谓的permalink，也就是文章的永久地址（设置格式参考Hexo说明），我的设置为 :category/:year/:id/ （分类，年，ID）。分为三层（层数很重要）</li>
+<li>文章界面显示：<font size=2.5 color="red">在文章界面，此时的根目录不再是source了</font>，而是文章的permalink。所以，要链接到图片，就先要返回到source目录，由于我设置的是三层，所以应该../三次（返回上层目录）才能回到根目录</li>
+<li><font size=3 color="red">于是，最终的src="../../../img/1.png"（../的个数和permalink层数有关，img下创建文件夹也是可以的）</font></li>]]></content>
+      <categories>
+        <category>Hexo博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo使用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图的连通</title>
+    <url>/PAT/2020/A1013/</url>
+    <content><![CDATA[<p><font size=4 color="red">因为要画图，所以搁置一下，美图镇楼</font><br>有向图、无向图与连通性、连通分量、连通图</p>
+<a id="more"></a>
+<p style = "background: PowderBlue;text-align: center;">无向图</p>
+<font size=4>1.连通性</font><br>
+两个顶点vi与vj之间可以互相到达（直接连通或者其他点作为中间点连通），即称为这两个点连通<br>
+<font size=4>2.连通图</font><br>
+<img src="../../../img/PAT/1.png">]]></content>
+      <categories>
+        <category>PAT</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>图论</tag>
+        <tag>PAT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客雏形</title>
-    <url>/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/ck6z27d7r0006j0k6719n2386/</url>
+    <url>/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/1/</url>
     <content><![CDATA[<p>太不容易了TAT<br>花了一整天时间，终于搭建好了一个博客雏形，node.js + git + hexo结构，用github + gitee代理并国内外分流<br>主题采用大佬写的ayer（简单点来说，大佬做好了一切，我抄了这么久…..）</p>
 <a id="more"></a>
 <p style = "background: PowderBlue;text-align: center;">遇到了几个坑：</p>
@@ -41,32 +272,6 @@
       </categories>
       <tags>
         <tag>纪念</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Test 2</title>
-    <url>/me/2020/ck6z27d7c0000j0k61ki17xta/</url>
-    <content><![CDATA[<p>测试categories和tags</p>
-]]></content>
-      <categories>
-        <category>me</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Test 1</title>
-    <url>/test/2020/2020/ck6z27d7l0002j0k6bnb3ehc1/</url>
-    <content><![CDATA[<p>这是第一篇日志，没有内容</p>
-]]></content>
-      <categories>
-        <category>me</category>
-        <category>test</category>
-        <category>2020</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
       </tags>
   </entry>
 </search>
