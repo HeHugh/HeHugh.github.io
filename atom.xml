@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-24T11:18:32.951Z</updated>
+  <updated>2020-02-26T05:27:38.751Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL Server 2019 安装报错处理</title>
+    <link href="http://yoursite.com/SQLServer2019/2020/1/"/>
+    <id>http://yoursite.com/SQLServer2019/2020/1/</id>
+    <published>2020-02-26T04:37:43.000Z</published>
+    <updated>2020-02-26T05:27:38.751Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;商导快开课了，老师让提前下好SQLServer，推荐2017版本，同时承诺：“如果用2019版本完成作业直接给满分！”&lt;/p&gt;
+&lt;p&gt;看了下安装教程，很简单嘛(^_^) 二话不说，冲上来试试&lt;/p&gt;
+
+&lt;p&gt;前面就是设置安装路径和选择安装组件，简简单单，稳稳当当，直到…..我碰见这两兄弟TAT&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="SQLServer2019" scheme="http://yoursite.com/categories/SQLServer2019/"/>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="SQL Server 2019" scheme="http://yoursite.com/tags/SQL-Server-2019/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo撰文2</title>

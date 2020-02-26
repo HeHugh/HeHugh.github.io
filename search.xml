@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SQL Server 2019 安装报错处理</title>
+    <url>/SQLServer2019/2020/1/</url>
+    <content><![CDATA[<p>商导快开课了，老师让提前下好SQLServer，推荐2017版本，同时承诺：“如果用2019版本完成作业直接给满分！”</p>
+<p>看了下安装教程，很简单嘛(^_^) 二话不说，冲上来试试</p>
+
+<p>前面就是设置安装路径和选择安装组件，简简单单，稳稳当当，直到…..我碰见这两兄弟TAT</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="报错一"><a href="#报错一" class="headerlink" title="报错一"></a>报错一</h2><p><font size="4" color="red">“以前的某个程序安装已在安装计算机上创建挂起的文件操作。安装程序前必须重新启动计算机”</font></p>
+<p>重启就重启！</p>
+<p>5 minutes later…</p>
+<p>没用啊！</p>
+<p>然后才知道，要删除注册表 “PendingFileRenameOperations” <font size="2.5" color="00AAAA">（注册表打开方式见文末）</font></p>
+<p>路径：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager</p>
+<img src="../../../img/MSSQL/1.png">
+
+<p>（图中已经删了，这个注册表应该在箭头处。它不在Session Manager目录的子文件夹内，而是在一个文件，不要在左边找）</p>
+<p>然后就美滋滋安装了</p>
+<h2 id="报错二"><a href="#报错二" class="headerlink" title="报错二"></a>报错二</h2><p><font size="4" color="red">“tmpBD0A.tmp: Unable to save temp file [操作已超时。]”</font></p>
+<p>如果安装R和Python深度学习功能，就会发现：在最后下载几个.cab文件，明明不大，但是却会卡好久…..</p>
+<p>“完成但错误”，这有锤子用啊！我又用不了，就像 给我下载一个快捷方式但是不给我文件…</p>
+<p>然后根据报错信息，去 C:\Program Files\Microsoft SQL Server\150\Setup Bootstrap\Log 找他的安装记录</p>
+<img src="../../../img/MSSQL/2.png">
+
+<p>报错信息总结一下：安装 SRS 和 SPO 获取资源超时（写着像是存储失败，但是同一个文件夹，其他的东西可以存进去，这个文件不能存进去，不大现实）</p>
+<ul>
+<li>第一个字母S取自MicroSoft的s</li>
+<li>第二个字母：R代表R Studio语言，即选择安装的R语言；P代表Python语言</li>
+<li>第三个字母：S代表Server，服务器端；O代表Open，也就是客户端需要的环境（安装过程需要同意的）</li>
+</ul>
+<p>获取资源超时，结合以前的认知，也很正常，毕竟是外网的东西，很可能连接失败什么的</p>
+<h3 id="解决方案1"><a href="#解决方案1" class="headerlink" title="解决方案1"></a>解决方案1</h3><p>获取资源超时是概率性，多试几次就好了嘛，嘻嘻嘻</p>
+<p>回到你的SetUp程序，不要选择“安装”，选择“维护”</p>
+<img src="../../../img/MSSQL/3.png">
+
+<p>然后软件就会自我检查，发现组件不完整，按照流程修复即可</p>
+<img src="../../../img/MSSQL/4.png">
+
+<h3 id="解决方案2"><a href="#解决方案2" class="headerlink" title="解决方案2"></a>解决方案2</h3><p><a href=""https://docs.microsoft.com/en-us/sql/advanced-analytics/install/sql-ml-component-install-without-internet-access?view=sql-server-ver15"">来这里单独下载这几个组件</a></p>
+<h2 id="文末"><a href="#文末" class="headerlink" title="文末"></a>文末</h2><p style = "background: PowderBlue;text-align: center;">注册表管理</p>
+
+<ul>
+<li>Win + R快捷键打开“运行”界面</li>
+<li>输入“regedit”并回车</li>
+<li>已经到了“注册表管理”界面啦</li>
+</ul>
+<p style = "background: PowderBlue;text-align: center;">结束啦</p>]]></content>
+      <categories>
+        <category>SQLServer2019</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>SQL Server 2019</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo撰文2</title>
     <url>/Hexo%E5%8D%9A%E5%AE%A2/2020/2/</url>
     <content><![CDATA[<p>上文是讲的通过html直接修改文字效果，其实我们可以直接用markdown语法做其中部分处理，写起来会更为简洁<br>此文效果全部用Markdown语法，只写些常用的（就是懒！），效果图主要看字面意思+想象力（不想写太长๑Ő௰Ő๑）</p>
