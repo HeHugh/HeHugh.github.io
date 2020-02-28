@@ -3,7 +3,8 @@
   <entry>
     <title>软件文档第一次实验</title>
     <url>/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/%E5%AE%9E%E9%AA%8C1/2020/1/</url>
-    <content><![CDATA[<h1 id="软件文档之我见"><a href="#软件文档之我见" class="headerlink" title="软件文档之我见"></a>软件文档之我见</h1><hr>
+    <content><![CDATA[<h1 id="软件文档之我见"><a href="#软件文档之我见" class="headerlink" title="软件文档之我见"></a>软件文档之我见</h1><a id="more"></a>
+
 <h2 id="软件文档"><a href="#软件文档" class="headerlink" title="软件文档"></a>软件文档</h2><p>软件文档，从字面上来讲，即为“描述软件的相关文档”。</p>
 <h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><h4 id="软件的构成"><a href="#软件的构成" class="headerlink" title="软件的构成"></a>软件的构成</h4><p>在计算机应用的早期，软件是不包括文档的，软件仅包括“程序”和“框图”两部分。简单的软件用框图即可说明，但随着计算机行业的高速发展，软件的规模也在不断扩大，结构简单的框图已经无法满足需求了。进入软件工程化阶段后，“文档”的作用和地位不断上升，取代了“框图”。到现在，软件在各行业得到普遍应用，“数据”自然也就成为了软件关键的一部分。于是便形成了现在的<strong>软件=程序+文档+数据</strong>结构。</p>
 <h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><p>文档即每种数据媒体和其中所记录的数据。</p>
