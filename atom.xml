@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-27T12:52:32.098Z</updated>
+  <updated>2020-02-28T02:18:21.325Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件文档第一次实验</title>
+    <link href="http://yoursite.com/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/%E5%AE%9E%E9%AA%8C1/2020/1/"/>
+    <id>http://yoursite.com/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/%E5%AE%9E%E9%AA%8C1/2020/1/</id>
+    <published>2020-02-28T02:02:25.000Z</published>
+    <updated>2020-02-28T02:18:21.325Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;软件文档之我见&quot;&gt;&lt;a href=&quot;#软件文档之我见&quot; class=&quot;headerlink&quot; title=&quot;软件文档之我见&quot;&gt;&lt;/a&gt;软件文档之我见&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;软件文档&quot;&gt;&lt;a href=&quot;#软件文档&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="软件文档" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="实验1" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/%E5%AE%9E%E9%AA%8C1/"/>
+    
+    
+      <category term="软件文档" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL Server 2019 安装报错处理</title>
