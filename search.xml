@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>饥荒服务器搭建</title>
+    <url>/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2020/1/</url>
+    <content><![CDATA[<p>由于新型冠状病毒的原因，已经宅家两个多月了。缺乏自制力，所以一直在打游戏。</p>
+<p>加了很多房间，但是其中大部分都会莫名其妙的卡，在观看一些自己搭建服务器的视频之后，我也跟着教程走，自己搭一个服务器试一下。</p>
+<a id="more"></a>
+
+<h2 id="Ubuntu和CentOS"><a href="#Ubuntu和CentOS" class="headerlink" title="Ubuntu和CentOS"></a>Ubuntu和CentOS</h2><p>这是我第一次使用Linux系统，首先便是了解Ubuntu和CentOS两个分支的关系和区别（不全面，只是了解的部分）</p>
+<ul>
+<li><p><font size="5" color="red">来源</font></p>
+<ul>
+<li>CentOS是Linux发行版本之一，源自Red HAT Enterprise开放源码编译而成，所以它支持rpm格式安装</li>
+<li>Ubuntu基于Debian发行版和Gnome桌面环境，是一个以桌面应用为主的Linux操作系统。它不支持rpm格式安装</li>
+</ul>
+</li>
+<li><p><font size="5" color="red">用途</font></p>
+<ul>
+<li>CentOS具有高度稳定性，可以代替Red HAT Enterprise作为服务器</li>
+<li>Ubuntu提供用户一个开放版的社区，稳定且更新快，是由自由软件构成的操作系统</li>
+</ul>
+</li>
+<li><p><font size="5" color="red">系统用户</font></p>
+<ul>
+<li>CentOS的新建用户没有管理员权限。如果需要添加管理员权限，需要到/etc/sudoers中加入用户和权限。使用”su root账户的密码”即可切换到管理员账户</li>
+<li>Ubuntu的用户要使用管理员权限”sudo 命令”，第一次使用需要输入当前用户的密码。可直接使用管理员用户登录，步骤如下（都要加sudo）：<ol>
+<li>“sudo passwd root”设置管理员密码，运行后会首先输入一次密码，然后确认一次。</li>
+<li>“sudo vi /etc/ssh/sshd_config”系统本身是空密码管理员登录，找到其中”PermitRootLogin without-password”（无密码管理员登录）修改为”PermitRootLogin yes”（打开管理员密码登录)</li>
+<li>“sudo services ssh restart”重启ssh服务，即可使用root用户登录，密码为第一步中设置的密码</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><font size="5" color="red">在线安装</font></p>
+<ul>
+<li>CentOS使用yum命令（后面加目标地址）</li>
+<li>Ubuntu使用apt-get命令（后面加目标地址)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><p>Linux系统中，命令没有大写</p>
+<h3 id="输出命令echo和printf"><a href="#输出命令echo和printf" class="headerlink" title="输出命令echo和printf"></a>输出命令echo和printf</h3><ul>
+<li><p>echo:</p>
+<ul>
+<li>“echo $value”输出变量value的值。比较常用简单输出</li>
+<li>“echo -e”格式化输出后面的内容。格式化包括\t(横向制表符)，\n(换行)，\e(修改颜色,\e[0m为结束标识)等。<br>比如 echo -e “\e[31m hello world \e[0m”</li>
+</ul>
+</li>
+<li><p>printf:</p>
+<ul>
+<li>使用规则和c语言差不多，但是功能没有那么强大了，主要用于awk命令，适合比较复杂的输出</li>
+<li>printf自带格式化输出功能。比如\t(横向制表符)，\v（垂直制表符)，\n(换行)，%s(字符串内容)，%d(十进制整数)，%f(浮点数)<br>比如 printf “%s\t %s\t %s\t\n” [1]姓名:$name [2]性别:$sex [3]年龄:$age</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>云服务器</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+        <tag>云服务器</tag>
+        <tag>Linux系统命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>软件文档第一次实验</title>
     <url>/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/%E5%AE%9E%E9%AA%8C1/2020/1/</url>
     <content><![CDATA[<h1 id="软件文档之我见"><a href="#软件文档之我见" class="headerlink" title="软件文档之我见"></a>软件文档之我见</h1><a id="more"></a>

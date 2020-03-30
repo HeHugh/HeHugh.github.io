@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-28T02:22:54.675Z</updated>
+  <updated>2020-03-30T13:13:15.857Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>饥荒服务器搭建</title>
+    <link href="http://yoursite.com/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2020/1/"/>
+    <id>http://yoursite.com/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2020/1/</id>
+    <published>2020-03-30T12:20:43.000Z</published>
+    <updated>2020-03-30T13:13:15.857Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于新型冠状病毒的原因，已经宅家两个多月了。缺乏自制力，所以一直在打游戏。&lt;/p&gt;
+&lt;p&gt;加了很多房间，但是其中大部分都会莫名其妙的卡，在观看一些自己搭建服务器的视频之后，我也跟着教程走，自己搭一个服务器试一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="云服务器" scheme="http://yoursite.com/categories/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="游戏" scheme="http://yoursite.com/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="云服务器" scheme="http://yoursite.com/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="Linux系统命令" scheme="http://yoursite.com/tags/Linux%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>软件文档第一次实验</title>
