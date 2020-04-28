@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>神经网路向前与向后推导</title>
+    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/1/</url>
+    <content><![CDATA[<p>人工智能和深度学习已经成为了当前很火的名词，在深度学习算法中，第一个接触的便是神经网络算法</p>
+<p>对于一个神经网络，定义分为：输入层，隐含层，输出层 共三部分</p>
+<ul>
+<li>输入层：输入的数值inputs</li>
+<li>隐含层：可能会有多个隐含层，只有一个隐含层则称此神经网络为“双层神经网络”，两个隐含层则称为“三层神经网络”…..</li>
+<li>输出层：最终的输出outs</li>
+</ul>
+<a id="more"></a>
+
+<p>对于一个神经网络，为了让其能达到我们目标要求，所以我们要先“训练”它:</p>
+<ul>
+<li>首先即给定输入inputs和正确的输出targer_out</li>
+<li><font color="red">正向推导</font>：从输入层inputs附加权重计算得到隐含层h，再从隐含层h附加权重计算得到输出层o</li>
+<li>根据得到的输出层o和预期输出target_out计算出神经网络的总误差Loss_total(以下记为E_total)</li>
+<li><font color="red">反向推导</font>：根据总误差，从输出层开始调整其到第一个隐含层的权重，再逐步调整，最后调整隐含层到输入层的系数</li>
+<li>经过不断循环正向推导和逆向推导，最终总误差达到一个可以接受的范围，及训练完成</li>
+</ul>
+<p><font color="red">训练的过程是一个递归的过程</font>，一步步调整参数大小。打有可能出现调整很多次(step很大)时候还没有达到预期，这时候要考虑调整隐含层层数和因素多少。</p>
+<p>本次使用的是python做神经网络的模拟推导（没研究markdown的数学符号，就在草稿纸上写的），使用了numpy库（具体内容会在另一篇博客中）</p>
+<p style = "background: PowderBlue;text-align: center;">以下为推导过程</p>
+
+<img src="../../../img/DeepLearning/1.png">
+<img src="../../../img/DeepLearning/2.png">
+<img src="../../../img/DeepLearning/3.png">
+<img src="../../../img/DeepLearning/4.png">
+
+<p>图中推导为草稿部分，所以写得不太工整和详细</p>
+<p style = "background: PowderBlue;text-align: center;">推导过程结束</p>
+
+
+<p><font color="red">有以下几点需要注意，对于逆向推导十分重要</p>
+<ol>
+<li><p>对于隐含层和输出层，我们要区分其得到的结果分为两部分net和out</p>
+<ul>
+<li>net为网络计算出的结果,out为激活后的结果</li>
+<li>同一层的一个值的out值到net值的求导，即为对sigmoid函数求导，得到dao_sigmoid(x) = sigmoid(x) * (1-sigmod(x))</li>
+<li>由于正向推导用的值都是激活后的值，所以逆向推导只能由当前层的net值求导上一层out值</li>
+</ul>
+</li>
+<li><p>掌握好链式推导法则</p>
+<ul>
+<li>梯度变换曲率都是E_total对权重w的求导，但是展开式却有所不同，要观察权重影响的值</li>
+<li>图中的w5-w8只影响o的值。比如w5只影响o1的值，那么链式求导E_total——&gt;out_o1——&gt;net_o1——&gt;w5</li>
+<li>图中的w1-w4既影响h的值，也影响o的值。比如w1影响h1的值，但同时h1又影响o1和o2的值，所以此处要把E_total分为E_o1和E_o2<br>推导：E_total——&gt;E_o1, E_o2——&gt;out_o1, out_o2——&gt;net_o1, net_o2——&gt;out_h1——&gt;net_h1——&gt;w1</font>
+
+</li>
+</ul>
+</li>
+</ol>
+<p>代码：</p>
+<pre><code>import numpy as np
+
+def sigmoid(x):
+    y = 1.0 / (1.0 + np.exp(-x))
+    return y
+
+def dao_sigmoid(x):
+    y = sigmoid(x) * (1 - sigmoid(x))
+    return y
+
+if __name__ == &apos;__main__&apos;:
+
+    #参数预设:inputs为输入，weights1为输入层到隐含层，weights2为隐含层到输出层，b为偏向，target_o为预期输出，learning_rate为学习系数
+    inputs = np.array([0.05, 0.10], dtype = &apos;float&apos;)
+    weights1 = np.array([[0.55, 0.75], [0.95, 0.15]], dtype = &apos;float&apos;)
+    weights2 = np.array([[0.75, 0.15], [0.80, 0.60]], dtype = &apos;float&apos;)
+    b = np.array([0.15, 0.80], dtype = &apos;float&apos;)
+    target_o = np.array([0.01, 0.99], dtype = &apos;float&apos;)
+    learning_rate = 0.5
+
+    #设置正向推导两次。步数step从0开始
+    target_step = 2
+    step = 0
+
+    while step &lt; target_step:
+        print(&quot;Step :%d&quot;%(step))
+        #计算隐含层h1和h2
+        net_h = np.dot(inputs, weights1) + b[0]
+        out_h = sigmoid(net_h)
+        #计算输出层o1和o2
+        net_o = np.dot(out_h, weights2) + b[1]
+        out_o = sigmoid(net_o)
+        #计算损失函数
+        loss_total = np.sum((target_o-out_o)**2)/target_o.size
+        #梯度变换曲率
+        weight5, weight6 = -(target_o[0]-out_o[0]) * dao_sigmoid(net_o[0]) * out_h
+        weight7, weight8 = -(target_o[1]-out_o[1]) * dao_sigmoid(net_o[1]) * out_h
+        weight1, weight2 = (-(target_o[0]-out_o[0])*dao_sigmoid(net_o[0])*weights2[0][0] -(target_o[1]-out_o[1])*dao_sigmoid(net_o[1])*weights2[0][1]) * dao_sigmoid(net_h[0]) * inputs
+        weight3, weight4 = (-(target_o[0]-out_o[0])*dao_sigmoid(net_o[0])*weights2[1][0] -(target_o[1]-out_o[1])*dao_sigmoid(net_o[1])*weights2[1][1]) * dao_sigmoid(net_h[1]) * inputs
+        #更新参数
+        weights1[0][0] = weights1[0][0] - learning_rate*weight1
+        weights1[1][0] = weights1[1][0] - learning_rate*weight2
+        weights1[0][1] = weights1[0][1] - learning_rate*weight3
+        weights1[1][1] = weights1[1][1] - learning_rate*weight4
+        weights2[0][0] = weights2[0][0] - learning_rate*weight5
+        weights2[1][0] = weights2[1][0] - learning_rate*weight6
+        weights2[0][1] = weights2[0][1] - learning_rate*weight7
+        weights2[1][1] = weights2[1][1] - learning_rate*weight8
+        #输出（就不写明了，看代码应该能明白）
+        print(out_h)
+        print(out_o)
+        print(loss_total)
+        print(weights1)
+        print(weights2)
+        print(&quot;\n&quot;)
+        step = step+1</code></pre>]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>神经网络</tag>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>饥荒服务器搭建</title>
     <url>/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2020/1/</url>
     <content><![CDATA[<p>由于新型冠状病毒的原因，已经宅家两个多月了。缺乏自制力，所以一直在打游戏。</p>
@@ -66,7 +183,7 @@
   </entry>
   <entry>
     <title>软件文档第一次实验</title>
-    <url>/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/%E5%AE%9E%E9%AA%8C1/2020/1/</url>
+    <url>/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/2020/1/</url>
     <content><![CDATA[<h1 id="软件文档之我见"><a href="#软件文档之我见" class="headerlink" title="软件文档之我见"></a>软件文档之我见</h1><a id="more"></a>
 
 <h2 id="软件文档"><a href="#软件文档" class="headerlink" title="软件文档"></a>软件文档</h2><p>软件文档，从字面上来讲，即为“描述软件的相关文档”。</p>
@@ -187,7 +304,6 @@
 ]]></content>
       <categories>
         <category>软件文档</category>
-        <category>实验1</category>
       </categories>
       <tags>
         <tag>软件文档</tag>

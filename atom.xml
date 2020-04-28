@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-30T13:13:15.857Z</updated>
+  <updated>2020-04-28T15:55:31.445Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>神经网路向前与向后推导</title>
+    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/1/"/>
+    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/1/</id>
+    <published>2020-04-28T13:56:04.000Z</published>
+    <updated>2020-04-28T15:55:31.445Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;人工智能和深度学习已经成为了当前很火的名词，在深度学习算法中，第一个接触的便是神经网络算法&lt;/p&gt;
+&lt;p&gt;对于一个神经网络，定义分为：输入层，隐含层，输出层 共三部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入层：输入的数值inputs&lt;/li&gt;
+&lt;li&gt;隐含层：可能会有多个隐含层，只有一个隐含层则称此神经网络为“双层神经网络”，两个隐含层则称为“三层神经网络”…..&lt;/li&gt;
+&lt;li&gt;输出层：最终的输出outs&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="神经网络" scheme="http://yoursite.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>饥荒服务器搭建</title>
     <link href="http://yoursite.com/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2020/1/"/>
     <id>http://yoursite.com/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2020/1/</id>
     <published>2020-03-30T12:20:43.000Z</published>
-    <updated>2020-03-30T13:13:15.857Z</updated>
+    <updated>2020-03-30T13:22:25.235Z</updated>
     
     <summary type="html">
     
@@ -44,10 +73,10 @@
   
   <entry>
     <title>软件文档第一次实验</title>
-    <link href="http://yoursite.com/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/%E5%AE%9E%E9%AA%8C1/2020/1/"/>
-    <id>http://yoursite.com/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/%E5%AE%9E%E9%AA%8C1/2020/1/</id>
+    <link href="http://yoursite.com/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/2020/1/"/>
+    <id>http://yoursite.com/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/2020/1/</id>
     <published>2020-02-28T02:02:25.000Z</published>
-    <updated>2020-02-28T02:22:54.675Z</updated>
+    <updated>2020-04-28T13:59:12.083Z</updated>
     
     <summary type="html">
     
@@ -57,8 +86,6 @@
     
     
       <category term="软件文档" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/"/>
-    
-      <category term="实验1" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/%E5%AE%9E%E9%AA%8C1/"/>
     
     
       <category term="软件文档" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/"/>
