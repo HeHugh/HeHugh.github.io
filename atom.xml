@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-28T15:55:31.445Z</updated>
+  <updated>2020-06-01T15:21:19.719Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,124 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>h5格式</title>
+    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/ckawn5m080005qkk6c1b03qeg/"/>
+    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/ckawn5m080005qkk6c1b03qeg/</id>
+    <published>2020-06-01T14:10:01.000Z</published>
+    <updated>2020-06-01T15:21:19.719Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;font color = &#39;red&#39;&gt;打印数据存在问题&lt;/font&gt;&lt;/p&gt;
+&lt;h1 id=&quot;h5简介&quot;&gt;&lt;a href=&quot;#h5简介&quot; class=&quot;headerlink&quot; title=&quot;h5简介&quot;&gt;&lt;/a&gt;h5简介&lt;/h1&gt;&lt;p&gt;背景：CV、DL等涉及神经网络的各模型，卷积层和全连接层往往有很多神经元，训练完模型后，大量的weights的存储，可以使用h5格式存储&lt;/p&gt;
+&lt;p&gt;HDF（Hierarchical Data Format）&lt;strong&gt;层次数据格式&lt;/strong&gt;指一种为存储和处理大容量科学数据设计的文件格式及相应库文件&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="h5" scheme="http://yoursite.com/tags/h5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TensorFlow2.0</title>
+    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/"/>
+    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/</id>
+    <published>2020-05-25T06:51:30.000Z</published>
+    <updated>2020-05-25T07:05:16.636Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;特点&quot;&gt;&lt;a href=&quot;#特点&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Tensorflow2.0" scheme="http://yoursite.com/tags/Tensorflow2-0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>目标检测</title>
+    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/2020/1/"/>
+    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/2020/1/</id>
+    <published>2020-05-01T01:56:53.000Z</published>
+    <updated>2020-05-03T02:15:18.219Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h1 id=&quot;目标检测&quot;&gt;&lt;a href=&quot;#目标检测&quot; class=&quot;headerlink&quot; title=&quot;目标检测&quot;&gt;&lt;/a&gt;目标检测&lt;/h1&gt;&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="目标检测" scheme="http://yoursite.com/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python的numpy库</title>
+    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/"/>
+    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/</id>
+    <published>2020-04-29T00:48:09.000Z</published>
+    <updated>2020-04-29T01:28:38.721Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;现在很多做神经网络模拟或者其他计算量比较大的实验时，都会选择使用python语言，我认为numpy库功不可没&lt;/p&gt;
+&lt;p&gt;此处记录numpy库的一些基本内容和常用函数&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="numpy库" scheme="http://yoursite.com/tags/numpy%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>神经网路向前与向后推导</title>
     <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/1/"/>
     <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/1/</id>
     <published>2020-04-28T13:56:04.000Z</published>
-    <updated>2020-04-28T15:55:31.445Z</updated>
+    <updated>2020-05-01T02:00:10.230Z</updated>
     
     <summary type="html">
     
@@ -39,9 +152,9 @@
       <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="神经网络" scheme="http://yoursite.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="神经网络" scheme="http://yoursite.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   

@@ -1,6 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>h5格式</title>
+    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/ckawn5m080005qkk6c1b03qeg/</url>
+    <content><![CDATA[<p><font color = 'red'>打印数据存在问题</font></p>
+<h1 id="h5简介"><a href="#h5简介" class="headerlink" title="h5简介"></a>h5简介</h1><p>背景：CV、DL等涉及神经网络的各模型，卷积层和全连接层往往有很多神经元，训练完模型后，大量的weights的存储，可以使用h5格式存储</p>
+<p>HDF（Hierarchical Data Format）<strong>层次数据格式</strong>指一种为存储和处理大容量科学数据设计的文件格式及相应库文件</p>
+<a id="more"></a>
+<h2 id="h5读取"><a href="#h5读取" class="headerlink" title="h5读取"></a>h5读取</h2><h3 id="神经网络读取"><a href="#神经网络读取" class="headerlink" title="神经网络读取"></a>神经网络读取</h3><p>此处顺便记录一下tf2用class定义网络</p>
+<pre><code>import tensorflow as tf
+from tensorflow.keras.models import Model
+###方式1：使用Class###
+Class model(Model):
+    def __init__(self):
+        super(model, self).__init__
+        self.cbapd()=..... #八股定义CBAPD
+    def call(self)
+        x = self.cbapd(x)
+        y = self.cbapd(x)
+
+###方式2：函数返回Class###
+def model(train, validate):
+    x = cbapd(train)
+    y = cbapd(x)
+    return Model(x, y, name = &apos;model&apos;)
+
+if __name__ == &apos;__main__&apos;:
+model = model()
+model.load_weights(&apos;weights.h5&apos;)</code></pre><h3 id="打印内容"><a href="#打印内容" class="headerlink" title="打印内容"></a>打印内容</h3><p>使用h5py库类似excel的读取（类似一个map,拥有多个key，每个key对应value)</p>
+<pre><code>import h5py
+import numpy as np
+f = h5py.File(&apos;weights.h5&apos;, &apos;r&apos;) #用只读方式 打开h5文件
+print(f.keys()) #打印所有的key
+for key in f.keys():
+    data = np.array(f[key])
+    print(data)</code></pre><p><font color="red">不明原因报错</font><br>根据报错信息，应该是data里面有数据的类型不支持译码为ascii（可能是个例）</p>
+<pre><code>运行时候  File &quot;D:\programming\python\lib\site-packages\h5py\_hl\base.py&quot;, line 137, in _e
+name = name.encode(&apos;ascii&apos;)
+AttributeError: &apos;slice&apos; object has no attribute &apos;encode&apos;</code></pre>]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>h5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TensorFlow2.0</title>
+    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>通过清理废弃的API和减少重复来简化API</li>
+<li>运行后就得出结果（1是用建立图模型后用session运行）</li>
+<li>使用Keras和eager execution轻松构建模型</li>
+<li>标准化交换格式改进平台和跨语言部署</li>
+</ul>
+<h3 id="tf-keras"><a href="#tf-keras" class="headerlink" title="tf.keras"></a>tf.keras</h3><p>构建和训练模型的核心高级API（官方指定）</p>
+<h3 id="Eager模式和自定义训练"><a href="#Eager模式和自定义训练" class="headerlink" title="Eager模式和自定义训练"></a>Eager模式和自定义训练</h3>]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>Tensorflow2.0</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>目标检测</title>
+    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/2020/1/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h1 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>目标检测是在图片中对<font color="red">可变数量</font>的目标进行查找和分类</p>
+<p>主要问题：</p>
+<ul>
+<li>目标种类和数量</li>
+<li>环境的干扰</li>
+<li>目标框的大小</li>
+</ul>
+<h3 id="目标检测-图像分类-目标分割"><a href="#目标检测-图像分类-目标分割" class="headerlink" title="目标检测-图像分类-目标分割"></a>目标检测-图像分类-目标分割</h3><ul>
+<li>目标检测：检测物体位置，用矩形框标注，并标明其概率</li>
+<li>图像分类：识别出一个图片包含哪些物体，并给其标注tags，再根据tag分类</li>
+<li>目标分割：寻找物体具体位置。像素级别识别图像中的物体（类似红外线扫描仪效果….）<ul>
+<li>语义分割：对于每一个像素点判断其属于哪一个分类</li>
+<li>实例分割：在语义分割的基础上，对同一分类的目标也要标明不同</li>
+</ul>
+</li>
+</ul>
+<h3 id="历史演变"><a href="#历史演变" class="headerlink" title="历史演变"></a>历史演变</h3><table>
+<thead>
+<tr>
+<th align="left">年份</th>
+<th align="left">检测方式</th>
+<th align="left">分类特征值获取</th>
+<th align="left">代表技术</th>
+<th align="left">改进</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">2001-2012</td>
+<td align="left">滑动窗口</td>
+<td align="left">手工设置</td>
+<td align="left">VJ，DPM</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">2012-2015</td>
+<td align="left">滑动窗口</td>
+<td align="left">卷积神经网络提取</td>
+<td align="left">Overfeat，RCNN</td>
+<td align="left">特征值自动提取且有更好适应性</td>
+</tr>
+<tr>
+<td align="left">2015-(Two-stage)</td>
+<td align="left">Proposal</td>
+<td align="left">卷积神经网络提取</td>
+<td align="left">Fast RCNN，Faster RCNN</td>
+<td align="left">提高搜索框提取目标区域的速度</td>
+</tr>
+<tr>
+<td align="left">2015-(One-stage)</td>
+<td align="left">目标框回归</td>
+<td align="left">自动提取</td>
+<td align="left">YOLO，SSD</td>
+<td align="left">速度提升，精度稍降</td>
+</tr>
+</tbody></table>
+<p>传统算法（2012之前）：输入——<font color="blue">候选框——特征提取——分类——</font>NMS——输出<br>深度学习（2012之后）：输入——<font color="blue">特征提取——回归——</font>NMS——输出</p>
+<p>传统算法特征值提取一般关注纹理</p>
+<ul>
+<li>VJ的Harr特征：颜色只有黑白，采取多形状多方向得到特征值</li>
+<li>HOG特征：图片灰度化后Gamma变化，计算每一个点的梯度map（xy方向量化），点组成cell得到梯度直方图，相邻多个cell组成block进行特征归一化，多个block串联并归一化</li>
+<li>DPM（物体检测，HOG拓展）：梯度分为有符号和无符号，用加法代替乘法</li>
+</ul>
+<p>NMS（非极大值抑制算法）：同一个物体的识别，只保留识别分数最高的识别框</p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python的numpy库</title>
+    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/</url>
+    <content><![CDATA[<p>现在很多做神经网络模拟或者其他计算量比较大的实验时，都会选择使用python语言，我认为numpy库功不可没</p>
+<p>此处记录numpy库的一些基本内容和常用函数</p>
+<a id="more"></a>
+
+<h1 id="numpy库"><a href="#numpy库" class="headerlink" title="numpy库"></a>numpy库</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>NumPy(Numerical Python) 是Python 语言的一个扩展程序库，支持高维度数组与矩阵运算，并提供大量的数学函数库。</p>
+<pre><code>安装还是使用pip install numpy，网速不行就使用镜像网址
+引用import numpy as np，以下简称np</code></pre><h2 id="ndarray"><a href="#ndarray" class="headerlink" title="ndarray"></a>ndarray</h2><h3 id="声明和赋值"><a href="#声明和赋值" class="headerlink" title="声明和赋值"></a>声明和赋值</h3><pre><code>NumPy库的array函数：numpy.array(object, dtype = None, copy = True, order = None, subok = False, ndmin = 0)</code></pre><p>一般只用关心object(数组或者嵌套数组)，剩下的可选内容中常用的是dtype（数组元素的数值类型）</p>
+<pre><code>一维数组：a = np.array([1, 2, 3])
+二维数组：a = np.array([[1, 2], [3]], dtype = &apos;float&apos;)</code></pre><p>嵌套数组一般为二维数组，可以使用a[0][0]访问</p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>python</tag>
+        <tag>numpy库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>神经网路向前与向后推导</title>
     <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/1/</url>
     <content><![CDATA[<p>人工智能和深度学习已经成为了当前很火的名词，在深度学习算法中，第一个接触的便是神经网络算法</p>
@@ -113,8 +279,8 @@ if __name__ == &apos;__main__&apos;:
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>神经网络</tag>
         <tag>深度学习</tag>
+        <tag>神经网络</tag>
       </tags>
   </entry>
   <entry>
