@@ -1,8 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hadoop集群搭建</title>
+    <url>/2020/08/07/3/</url>
+    <content><![CDATA[<p>以下均在root用户权限内操作</p>
+<a id="more"></a>
+
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h3><p>进入 /etc/hostname 文件，里面内容初始为 ubuntu， 将其修改为自己喜欢的名字，如 master</p>
+<p>reboot 重启电脑以生效</p>
+<p>同理修改其他集群内电脑</p>
+<h3 id="添加ip缓存"><a href="#添加ip缓存" class="headerlink" title="添加ip缓存"></a>添加ip缓存</h3><p>进入 /etc/hosts 文件，改动如下</p>
+<pre><code>127.0.0.1    localhost
+//此处本来可能有127.0.0.1 ubuntu，可以删除，也可以把ubuntu改为新主机名
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+//下面添加集群内所有计算机的ip和主机名，之后的slave统一称为slaves
+192.168.42.130    master
+192.168.42.129    slave1
+192.168.42.128    slave2</code></pre><h3 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h3><pre><code>ssh-keygen -t rsa //生成秘钥
+//接下来会提示输入秘钥存放地址、passphase段
+//秘钥默认存放在 /root/.ssh下</code></pre><p>在/root/.ssh文件夹下，生成两个文件： id_rsa 和 id_rsa.pub<br>其中id_rsa中存放私钥，id_rsa.pub中存放公钥</p>
+<p>同理在其他计算机中生成秘钥</p>
+<h3 id="设置秘钥串"><a href="#设置秘钥串" class="headerlink" title="设置秘钥串"></a>设置秘钥串</h3><p>在 /root/.ssh 目录下新建一个文件authorized_key，将所有计算机中的公钥复制到其中，一个公钥占一行，然后把authorized_key传输给集群内所有计算机</p>
+<p>使用winscp可以直接新建、打开、复制、粘贴，比较方便</p>
+<p>当然，也可以使用代码，假设当前用户为master</p>
+<pre><code>//将公钥写入认证钥匙串authorized中
+cat id_rsa.pub &gt;&gt; authorized_keys
+
+//用scp通过ssh传输文件，此处为从slaves处下载公钥。slaves为目标计算机，如slave1。root为服务器（目标计算机）用户名称
+scp root@slaves:/root/.ssh/id_rsa.pub /root/.ssh/
+//使用cat同理将所有公钥写入authorized_keys中
+
+//将master中的authorized_keys上传到slaves中
+scp /root/.ssh/authorized root@slaves:/root/.ssh</code></pre><h3 id="实现集群内免密登录"><a href="#实现集群内免密登录" class="headerlink" title="实现集群内免密登录"></a>实现集群内免密登录</h3><p>集群内免密登录已经实现，代码如下：</p>
+<pre><code>ssh master
+ssh slave1</code></pre><p>首次登录，会询问“是否保存与目标计算机的连接缓存”，输入“yes”就行了</p>
+<p>然后在 /root/.ssh目录下，会生成一个名为 known_hosts 的文件，里面保存了连接的缓存，之后ssh连接只要秘钥、连接信息没变，就不会有其他提示信息</p>
+]]></content>
+      <categories>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu16.04初始</title>
+    <url>/2020/08/07/1/</url>
+    <content><![CDATA[<p>文章针对自己的虚拟机从零开始设置，更换源，安装ssh</p>
+<a id="more"></a>
+
+<h2 id="管理员权限"><a href="#管理员权限" class="headerlink" title="管理员权限"></a>管理员权限</h2><pre><code>sudo passwd root //第一次给root用户设置密码
+//输入当前用户密码以及两次确认root用户密码后设置成功
+su root //切换至root用户
+su hh //切换至hh用户</code></pre><h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="更换apt源"><a href="#更换apt源" class="headerlink" title="更换apt源"></a>更换apt源</h3><ol>
+<li><p>进入/etc/apt中，找到sources.list文件</p>
+</li>
+<li><p>用以下代码代替原内容（阿里云的apt源）</p>
+<pre><code>deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties
+deb http://archive.canonical.com/ubuntu xenial partner
+deb-src http://archive.canonical.com/ubuntu xenial partner
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse</code></pre></li>
+<li><p>使用命令 apt update 更新源</p>
+</li>
+</ol>
+<h3 id="更换pip源"><a href="#更换pip源" class="headerlink" title="更换pip源"></a>更换pip源</h3><ol>
+<li><p>在root文件目录下，新建一个目录 .pip</p>
+</li>
+<li><p>在/root/.pip中新建一个文件 pip.conf</p>
+</li>
+<li><p>在pip.conf内保存以下内容：</p>
+<pre><code>[global]
+trusted-host =  pypi.douban.com
+index-url = http://pypi.douban.com/simple</code></pre></li>
+</ol>
+<p>此处使用的是豆瓣源，还有清华、阿里等源</p>
+<p>由于http为非安全，所以需要加入trusted-host表示对目标url的信任</p>
+<h2 id="ssh登录"><a href="#ssh登录" class="headerlink" title="ssh登录"></a>ssh登录</h2><h3 id="安装ssh服务"><a href="#安装ssh服务" class="headerlink" title="安装ssh服务"></a>安装ssh服务</h3><pre><code>sudo apt install openssh-server //安装ssh服务
+ps -e |grep ssh //查看已启动的ssh端口</code></pre><h3 id="远程root登录"><a href="#远程root登录" class="headerlink" title="远程root登录"></a>远程root登录</h3><ol>
+<li>进入/etc/ssh目录，找到配置文件 sshd_config</li>
+<li>找到 # Authentication:</li>
+<li>将其中的PermitRootLogin改为yes</li>
+</ol>
+<p>即：</p>
+<pre><code># Authentication:
+LoginGraceTime 120
+PermitRootLogin yes 
+StrictModes yes</code></pre>]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python输出</title>
+    <url>/2020/08/07/2/</url>
+    <content><![CDATA[<p>设置代码编码格式</p>
+<pre><code># -*- coding: UTF-8 -*-</code></pre><p><font color="red" size="3"></font> python控制台中文输出</p>
+<pre><code>import sys
+import io
+sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding=&apos;utf8&apos;)</code></pre>]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>io</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构</title>
+    <url>/2020/06/02/1/</url>
+    <content><![CDATA[<p>6月21日要举行PAT考试了，第一次考主要为了熟悉下考场环境和编译，当然，能一次过最好啦~</p>
+<p>因为数据结构忘得差不多了，所以在这里记录《数据结构》（第二版，陈越主编）的学习笔记，希望加深印象，为考研也打个基础</p>
+<a id="more"></a>
+
+<h1 id="第一章————概论"><a href="#第一章————概论" class="headerlink" title="第一章————概论"></a>第一章————概论</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><ol>
+<li><p>提出了 数据结构的定义 有很多，最简单的是A.Shaffer的“数据结构是ADT（抽象数据类型）的物理实现”</p>
+</li>
+<li><p>举出打印数字的例子，比较循环和递归的效率（递归开销更大，要等待调用函数得到结果才释放内存）</p>
+</li>
+<li><p>用<font size="4" color="red">clock()工具</font> 展现秦九韶算法的优越性</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+clock_t start, stop; //clock_t是clock()函数返回的函数变量
+//
+//返回的时间单位是clock tick（时间打点），常数CLK_TCK（或CLOCK_PER_SEC)为机器时钟每秒走的时间打点数
+//
+double duration; //记录函数运行时间，单位为秒
+int main(){
+    start = clock() //开始计时
+    function; //被测函数
+    stop = clock() //结束计时
+    duration = ((double)(stop - start))/CLK_TCK //计算运行时间
+    //如果运行时间比较短，小于两次时钟打点，可以用for运行多次
+    return 0;
+}</code></pre></li>
+</ol>
+<h2 id="数据结构定义"><a href="#数据结构定义" class="headerlink" title="数据结构定义"></a>数据结构定义</h2><p><strong>数据结构 = 数据对象在计算机中的组织方式 + 对数据对象的操作</strong></p>
+<p>数据对象在计算机中的组织方式：</p>
+<ul>
+<li>数据对象集的逻辑结构（线性、树状等）</li>
+<li>数据对象集在计算机中的物理存储结构（数组、链表等）</li>
+</ul>
+<p><strong>抽象数据类型（Abstract Data Type）是对数据结构的抽象描述</strong></p>
+<p>eg:<br>类型名称：矩阵<br>对象数据集：一个mXn矩阵三元组，每个符号代表含义<br>操作集：函数定义和返回类型</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p><strong>定义：算法是一个有限指令集，接受一些输入（有些情况不需要输入），产生输出，并在一定有限步骤后终止</strong></p>
+<ul>
+<li>每一条指令必须有充分明确的目标，不可以有歧义</li>
+<li>必须在计算机处理的范围之内</li>
+<li>描述不依赖于任何一种计算机语言以及具体的实现手段</li>
+</ul>
+<p><strong>空间复杂度 S(n)</strong>:程序在执行时占用存储单元的长度。往往与输入数据的规模n有关。过高可能内存超限，非正常中断<br><strong>时间复杂度 T(n)</strong>:程序执行时耗费时间的长度。往往也和输入数据规模n有关，过高则效率低，运行慢</p>
+<p><font size="5" color="red">P10的1.3.2算法复杂度没看完</font></p>
+<h1 id="第二章————数据结构实现基础"><a href="#第二章————数据结构实现基础" class="headerlink" title="第二章————数据结构实现基础"></a>第二章————数据结构实现基础</h1>]]></content>
+      <categories>
+        <category>考研</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>考研</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>h5格式</title>
-    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/ckawn5m080005qkk6c1b03qeg/</url>
+    <url>/2020/06/01/ckdka48fm000iick6exyagzf5/</url>
     <content><![CDATA[<p><font color = 'red'>打印数据存在问题</font></p>
 <h1 id="h5简介"><a href="#h5简介" class="headerlink" title="h5简介"></a>h5简介</h1><p>背景：CV、DL等涉及神经网络的各模型，卷积层和全连接层往往有很多神经元，训练完模型后，大量的weights的存储，可以使用h5格式存储</p>
 <p>HDF（Hierarchical Data Format）<strong>层次数据格式</strong>指一种为存储和处理大容量科学数据设计的文件格式及相应库文件</p>
@@ -47,7 +232,7 @@ AttributeError: &apos;slice&apos; object has no attribute &apos;encode&apos;</co
   </entry>
   <entry>
     <title>TensorFlow2.0</title>
-    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/</url>
+    <url>/2020/05/25/2/</url>
     <content><![CDATA[<a id="more"></a>
 
 <h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
@@ -68,7 +253,7 @@ AttributeError: &apos;slice&apos; object has no attribute &apos;encode&apos;</co
   </entry>
   <entry>
     <title>目标检测</title>
-    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/2020/1/</url>
+    <url>/2020/05/01/1/</url>
     <content><![CDATA[<a id="more"></a>
 
 <h1 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>目标检测是在图片中对<font color="red">可变数量</font>的目标进行查找和分类</p>
@@ -146,7 +331,7 @@ AttributeError: &apos;slice&apos; object has no attribute &apos;encode&apos;</co
   </entry>
   <entry>
     <title>python的numpy库</title>
-    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/</url>
+    <url>/2020/04/29/2/</url>
     <content><![CDATA[<p>现在很多做神经网络模拟或者其他计算量比较大的实验时，都会选择使用python语言，我认为numpy库功不可没</p>
 <p>此处记录numpy库的一些基本内容和常用函数</p>
 <a id="more"></a>
@@ -161,14 +346,14 @@ AttributeError: &apos;slice&apos; object has no attribute &apos;encode&apos;</co
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>python</tag>
+        <tag>深度学习</tag>
         <tag>numpy库</tag>
       </tags>
   </entry>
   <entry>
     <title>神经网路向前与向后推导</title>
-    <url>/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/1/</url>
+    <url>/2020/04/28/1/</url>
     <content><![CDATA[<p>人工智能和深度学习已经成为了当前很火的名词，在深度学习算法中，第一个接触的便是神经网络算法</p>
 <p>对于一个神经网络，定义分为：输入层，隐含层，输出层 共三部分</p>
 <ul>
@@ -285,7 +470,7 @@ if __name__ == &apos;__main__&apos;:
   </entry>
   <entry>
     <title>饥荒服务器搭建</title>
-    <url>/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2020/1/</url>
+    <url>/2020/03/30/1/</url>
     <content><![CDATA[<p>由于新型冠状病毒的原因，已经宅家两个多月了。缺乏自制力，所以一直在打游戏。</p>
 <p>加了很多房间，但是其中大部分都会莫名其妙的卡，在观看一些自己搭建服务器的视频之后，我也跟着教程走，自己搭一个服务器试一下。</p>
 <a id="more"></a>
@@ -348,136 +533,8 @@ if __name__ == &apos;__main__&apos;:
       </tags>
   </entry>
   <entry>
-    <title>软件文档第一次实验</title>
-    <url>/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/2020/1/</url>
-    <content><![CDATA[<h1 id="软件文档之我见"><a href="#软件文档之我见" class="headerlink" title="软件文档之我见"></a>软件文档之我见</h1><a id="more"></a>
-
-<h2 id="软件文档"><a href="#软件文档" class="headerlink" title="软件文档"></a>软件文档</h2><p>软件文档，从字面上来讲，即为“描述软件的相关文档”。</p>
-<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><h4 id="软件的构成"><a href="#软件的构成" class="headerlink" title="软件的构成"></a>软件的构成</h4><p>在计算机应用的早期，软件是不包括文档的，软件仅包括“程序”和“框图”两部分。简单的软件用框图即可说明，但随着计算机行业的高速发展，软件的规模也在不断扩大，结构简单的框图已经无法满足需求了。进入软件工程化阶段后，“文档”的作用和地位不断上升，取代了“框图”。到现在，软件在各行业得到普遍应用，“数据”自然也就成为了软件关键的一部分。于是便形成了现在的<strong>软件=程序+文档+数据</strong>结构。</p>
-<h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><p>文档即每种数据媒体和其中所记录的数据。</p>
-<ul>
-<li>文档具有永久性，可供人或机器阅读（通常指专供人阅读的东西）。</li>
-<li>文档作为计算机软件的重要组成部分，它告诉用户如何操作和维护系统，提供关于未来改进和重新实施所需的信息，在开发人员、维护人员、管理人员、用户与计算机之间起着桥梁作用</li>
-</ul>
-<h4 id="文档的作用"><a href="#文档的作用" class="headerlink" title="文档的作用"></a>文档的作用</h4><ul>
-<li>管理的依据</li>
-<li>技术交流的语言</li>
-<li>软件质量的保证</li>
-<li>支持培训与参考</li>
-<li>支持软件维护</li>
-<li>记录软件的历史</li>
-</ul>
-<h4 id="文档的分类"><a href="#文档的分类" class="headerlink" title="文档的分类"></a>文档的分类</h4><ul>
-<li>按照生产和使用的范围<ul>
-<li>管理类文档：记录项目管理的信息</li>
-<li>开发类文档：描述软件开发过程本身</li>
-<li>产品类文档：描述开发过程的产物（软件自身）</li>
-</ul>
-</li>
-<li>按阅读对象<ul>
-<li>管理人员</li>
-<li>开发人员</li>
-<li>维护人员</li>
-<li>最终用户</li>
-</ul>
-</li>
-<li>按软件开发方法<ul>
-<li>面向过程的文档</li>
-<li>面向对象的文档</li>
-</ul>
-</li>
-</ul>
-<h4 id="文档标准"><a href="#文档标准" class="headerlink" title="文档标准"></a>文档标准</h4><p>软件的规模和复杂度在持续的增加，人们对软件产品开发过程系统化、规范化和标准化的要求也越来越严格，因此，软件工程标准化、软件文档规范化，已经成为软件领域影响软件行业发展的一个重要因素，并制定了如下的标准层次。</p>
-<p>标准层次</p>
-<ul>
-<li>国际标准：由国际联合机构制定和公布的标准，供各国参考<ul>
-<li>ISO—国际标准化组织</li>
-</ul>
-</li>
-<li>国家标准：由政府或国家级的机构制定或批准，适用全国范围<ul>
-<li>GB—中国国家标准</li>
-<li>ANSI—美国国家标准</li>
-<li>BS—英国国家标准</li>
-<li>GJB—中国国家军用标准</li>
-</ul>
-</li>
-<li>行业标准：由行业机构、学术团体或国防等机构制定，适用某业务领域<ul>
-<li>IEEE—美国电气和电子工程师协会</li>
-</ul>
-</li>
-<li>企业规范：企业因软件工作的需要制定的适用本企业的规范<ul>
-<li>IBM通用产品部于1984年制定的《程序设计开发指南》</li>
-</ul>
-</li>
-<li>项目规范：由某科研生产组织制定，仅为该组织服务的软件工程规范</li>
-</ul>
-<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><h3 id="软件文档与软件生命周期"><a href="#软件文档与软件生命周期" class="headerlink" title="软件文档与软件生命周期"></a>软件文档与软件生命周期</h3><p>软件生存周期：从构思软件产品开始到该产品不能再使用时为止的时间段。<br>通常划分为计划、开发、运行三个时期，不同时期不同角色参与其中。而软件文档伴随不同的角色，贯穿软件生存周期始终。</p>
-<ul>
-<li><p><strong>计划时期</strong>主要任务为问题分析、可行性研究何制定计划。在这一阶段，软件文档的撰写应该主要由产品经理、市场调研人员等人完成，文档的目的是分析问题，根据市场调研以及其他相关资料，来分析可能出现的问题，包括其能否被解决、大约需要多长时间、方案是否可行等问题。<strong>相当于对软件进行了一次模拟开发与总结</strong>，已经预测了大部分可能遇见的问题，这样大大降低了开发中途遇到无法解决的问题而导致前功尽弃的概率，降低了双方不必要的损失：开发方花废时间、人力开发软件，但是得到的只是半成品，无实际意义；需求方花费时间说明和等待，最后却得不到理想中的产品。</p>
-</li>
-<li><p><strong>开发时期</strong>主要任务为需求分析，概要设计，详细设计，编码测试，软件发布。在这一阶段，软件文档的撰写应该由开发团队完成，并提供给开发团队中各个功能模块的设计开发人员，为其详细设计提供指导依据。</p>
-<ul>
-<li><p>需求分析：首先要根据用户的需求做一个详细的分析：有哪些方面的需求、需求应该完成到什么地步、客户允许多大程度的失误率等。<strong>一个良好的需求需求文档是成功的一半。</strong></p>
-</li>
-<li><p>概要设计：主要是将任务不断划分为小的任务，不进行实际的编码，只考虑前期的定义和输入输出</p>
-<ul>
-<li>首先要定义好软件的开发环境：运行平台，硬件环境与软件环境</li>
-<li>其次，要将软件系统划分为多个子系统并绘制出系统结构：包括总体结构图、功能结构图、数据库E-R图和整体流程图</li>
-<li>针对每一个子系统再次划分模块，每一个模块定义其功能描述、模块输入、模块输出、接口设计四个部分</li>
-<li>最后要写明数据库的设计，根据实际需求对一部分模块或者子模块定义其表中的数据中英文名称、字段类型、是否为主键、能否为空</li>
-</ul>
-</li>
-<li><p>详细设计：延续概要设计的子系统和模块划分。针对每一个子系统说明其硬软件要求、主要功能、工作流程、模块的划分，对于其中的模块，要描述清楚其功能描述、输入输出、接口设计、流程图、方法说明和界面设计。<strong>在这一阶段，可执行软件已经生成</strong></p>
-</li>
-<li><p>编码测试：对于一个可执行软件，还要测试其是否满足用户需求，需要对每一个模块进行测试，包括但不限于计算模块计算节点软件测试、显示模块功能测试、功能测试。记录测试环境、测试项、测试函数、测试用例、测试结果和问题需要的备注。最后针对整体得出软件的能力、缺陷、限制、建议和评价。开发人员再根据测试结果修改代码，直到测试结果满意。<strong>在这一阶段，满足需求且能处理部分异常的软件生成</strong></p>
-</li>
-<li><p>软件发布：满足需求的软件可以发布了，但是对于它的使用还需要一个文档说明。这一阶段文档最终面向使用者，需要说明软件的使用要求和软件的功能等</p>
-</li>
-</ul>
-</li>
-<li><p><strong>运行时期</strong></p>
-<ul>
-<li>运行维护：随着软件的运行，可能会出现一部分测试时没有出现的问题，需要进行软件的维护；或者随着硬软件条件的改变与需求的改变，软件需要更新。这一阶段，文档需要记录软件出现的问题，对于每次新版本的发布，告知使用者软件已解决的问题。</li>
-</ul>
-</li>
-</ul>
-<h3 id="文档的作用-1"><a href="#文档的作用-1" class="headerlink" title="文档的作用"></a>文档的作用</h3><p>软件文档伴随不同的角色，贯穿软件生存周期始终。各个时期的文档撰写的人不同，阅读的人也不同，同时文档专注的内容也是天差地别。但是，每个时期的文档都对软件开发起着指导性作用，它规范了软件开发的流程，实现了与客户的良好交流，将需求细分为小的模块，分组实现，极大程度上节省了人力、物力、财力和沟通的时间。</p>
-<p>总结一下之后，软件文档对于软件开发的意义如下</p>
-<ul>
-<li>提高软件的可靠性、可维护性和可移植性</li>
-<li>提高软件的生产率和软件人员的技术水平</li>
-<li>提高软件人员之间的通信效率，减少差错和误解</li>
-<li>有利于软件管理</li>
-<li>有利于降低软件产品的成本和运行维护成本</li>
-<li>有利于缩短软件开发周期</li>
-</ul>
-<h2 id="对文档的态度"><a href="#对文档的态度" class="headerlink" title="对文档的态度"></a>对文档的态度</h2><h3 id="个人经历"><a href="#个人经历" class="headerlink" title="个人经历"></a>个人经历</h3><p>在“软件开发综合能力训练”里面，我担任组长一职，我们团队进行了为期两周的“二手市场交易平台”的开发。从一开始的软件规格说明书，到后来的站立会议、迭代总结等，再到用户使用说明，文档贯彻了我们开发的全部流程。作为项目负责人，我负责了文档撰写工作，也参与了其中的编码等工作，我深深感受到了文档的重要性：<strong>软件文档贯彻着整个软件生命周期，对软件开发起着指导性作用</strong>。</p>
-<ul>
-<li>最开始的软件规格说明书，已经在很大程度上定义了软件各项功能、硬软件要求等，是对软件一个大体的规划</li>
-<li>站立会议让小组成员聚集在一起，报告自己的工作进度和遇到的问题。将问题告知大家，加强了团队的沟通，负责人也可以根据站立会议的结果进行任务分配的调整</li>
-<li>迭代报告总结了每一次迭代的目标和完成情况。这使团队开发流程更规范，有阶段性目标，更利于完成大的软件。并且每一次迭代任务进行总结，也给下一次迭代起到警示作用</li>
-</ul>
-<h3 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h3><p>大致阅读了杨帆老师提供的软件文档之后，对比我之前写的文档和开发经历，我感悟颇深</p>
-<ul>
-<li>需求文档。需求文档需要做好所有的需求的分析，而我们小组之前的需求文档太模模糊糊了，对需求分析不够透彻，同时也无法对需求做出好的总结和规划</li>
-<li>概要设计。概要设计要划分好软件的子系统、模块和它们之间的关系，对于模块要定义其输入输出。我们小组在之前的开发，忽略了软件模块的划分等，没有对模块进行好定义、数据库设计不清晰，导致我们开发过程中出现了很大的分歧，对许多输入和输出有不同的看法，于是我们在解决这些矛盾时候又浪费了大量的时间，也让一些开发人员的功能白做了。</li>
-<li>详细设计。详细设计要详细定义模块的功能、流程图、接口等，其实已经对功能基本实现。我们之前撰写的详细设计更像是概要设计，不够清晰详尽。</li>
-<li>总得来说，可能是由于没有开发经历，第一次的文档撰写和整个开发过程都显得有些紊乱，每个人对自己的任务不太清楚，团队间的沟通也不够。同时这也体现了软件文档对整个软件生命周期的重要性，它很好地将大任务划分为小任务，将小任务分配给个人，阶段性开发，让开发人员更明确自己的职责，团队里面出现的问题及时沟通及时解决，测试结果也能准确分发给负责开发的人员，让整个流程更加规范、高效</li>
-</ul>
-<h2 id="小建议"><a href="#小建议" class="headerlink" title="小建议"></a>小建议</h2><p>上了一周的课，杨帆老师本人诙谐幽默，讲课引人入胜，让我们在欢声笑语中就对软件文档有了一个系统性了解：软件定义的发展，文档的产生，文档的作用，软件生命周期和文档的关系，文档的标准。结合老师给的文件和自己的开发经历，有了更深刻的理解。</p>
-<p>但是，对于<em>文档的标准</em>这一部分，可能是本身就不太好讲解，也可能是我的理解不够深入、没有去单独阅读文档标准文档，我对这一部分的理解不够透彻。我仅知道文档需要用一个标准来规范化，且这个标准由各种机构来定义，但是不太了解何为达到标准，结合了老师的文档才有了浅薄理解。</p>
-<p>建议老师在之后讲解这种定义比较模糊的东西时，辅助以例子讲解，这样我们学生理解起来可能更容易一点。</p>
-]]></content>
-      <categories>
-        <category>软件文档</category>
-      </categories>
-      <tags>
-        <tag>软件文档</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SQL Server 2019 安装报错处理</title>
-    <url>/SQLServer2019/2020/1/</url>
+    <url>/2020/02/26/1/</url>
     <content><![CDATA[<p>商导快开课了，老师让提前下好SQLServer，推荐2017版本，同时承诺：“如果用2019版本完成作业直接给满分！”</p>
 <p>看了下安装教程，很简单嘛(^_^) 二话不说，冲上来试试</p>
 
@@ -542,7 +599,7 @@ if __name__ == &apos;__main__&apos;:
   </entry>
   <entry>
     <title>Hexo撰文2</title>
-    <url>/Hexo%E5%8D%9A%E5%AE%A2/2020/2/</url>
+    <url>/2020/02/24/2/</url>
     <content><![CDATA[<p>上文是讲的通过html直接修改文字效果，其实我们可以直接用markdown语法做其中部分处理，写起来会更为简洁<br>此文效果全部用Markdown语法，只写些常用的（就是懒！），效果图主要看字面意思+想象力（不想写太长๑Ő௰Ő๑）</p>
 <a id="more"></a>
 <h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h1><p>Markdown是一种纯文本格式的标记语言（类似XML哦），利用一些简单语法就可以实现文章的排版变化，让使用者可以把更多注意力放在内容上</p>
@@ -693,7 +750,46 @@ eg:
 <td align="right">17</td>
 </tr>
 </tbody></table>
-<h2 id="六、-小结"><a href="#六、-小结" class="headerlink" title="六、 小结"></a>六、 小结</h2><p>总的来说，使用Markdown语法确实比较简单，而且看起来更为美观。它兼容HTML格式，且由于它是纯文本，跨平台性也更好。</p>
+<h2 id="六、-数学公式"><a href="#六、-数学公式" class="headerlink" title="六、 数学公式"></a>六、 数学公式</h2><h3 id="1-公式声明"><a href="#1-公式声明" class="headerlink" title="1. 公式声明"></a>1. 公式声明</h3><pre><code>行中公式：与其他文字混编
+$$ 公式 $$
+独立公式： 单独起一行
+$ 公式 $</code></pre><h3 id="2-公式元素"><a href="#2-公式元素" class="headerlink" title="2. 公式元素"></a>2. 公式元素</h3><h4 id="希腊字母："><a href="#希腊字母：" class="headerlink" title="希腊字母："></a>希腊字母：</h4><p>常见的\alpah,\beta,\gamma,\omega,\epsilon,\eta,\lambda,\delta,\xi<br>大写的希腊字母，就大写首字母\Alpha</p>
+<h4 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h4><p>太多了，就记下来\times为X乘号，\div为除号</p>
+<p>单横线箭头\uparrow，双横线箭头大写首字母U</p>
+<ul>
+<li>up, down, left, right为四个方向</li>
+<li>双向箭头为\leftrightarrow</li>
+<li>加长箭头在前面加long. \longuparrow</li>
+</ul>
+<h3 id="3-公式语法"><a href="#3-公式语法" class="headerlink" title="3. 公式语法"></a>3. 公式语法</h3><ol>
+<li><p>上标使用 ^</p>
+</li>
+<li><p>下标使用 _</p>
+</li>
+<li><p>积分使用 \int_积分下限^积分上限 {被积表达式}</p>
+</li>
+<li><p>累加使用 \sum_{下标表达式}^{上标表达式} {累加表达式}<br>累乘\prod 并集\bigcup 交集\bigcap</p>
+</li>
+<li><p>分数使用 \frac {分子} {分母} 或者 分子 \over 分母</p>
+</li>
+<li><p>开方使用 \sqrt [开方根，默认为2] {被开方数字}</p>
+</li>
+<li><p>极限使用 \lim_{变量 \to 表达式} {表达式}</p>
+</li>
+<li><p>矢量使用 \vec{矢量}</p>
+</li>
+<li><p><strong>作为一个整体，要用大括号{}</strong></p>
+</li>
+<li><p>如果要输出大括号，需要加上右斜杠\{ \}</p>
+</li>
+<li><p>省略号使用 \underbrace{\ldots}_{\rm 被省略的表示}<br>underbrace为下大括号，overbrace为下大括号<br>ldots对齐文本底线，cdots对齐文本中线</p>
+</li>
+<li><p>注释使用 \text {注释}</p>
+</li>
+<li><p>字符空格 \,</p>
+</li>
+</ol>
+<h2 id="七、-小结"><a href="#七、-小结" class="headerlink" title="七、 小结"></a>七、 小结</h2><p>总的来说，使用Markdown语法确实比较简单，而且看起来更为美观。它兼容HTML格式，且由于它是纯文本，跨平台性也更好。</p>
 <p>段落前后要求有空行（无文字内容）</p>
 <p>看起来大方简洁，直观舒服。设置字体颜色还是用font（虽然我老感觉这是HTML语法）</p>
 <p><font size=2 color="00AAAA">但是我还是不喜欢用，噜啦啦啦啦啦(//∇//)！因为它显得太松散了，其中一部分功能可能会用，但更多可能还是喜欢直接用html</font></p>
@@ -708,7 +804,7 @@ eg:
   </entry>
   <entry>
     <title>Hexo撰文1</title>
-    <url>/Hexo%E5%8D%9A%E5%AE%A2/2020/1/</url>
+    <url>/2020/02/24/1/</url>
     <content><![CDATA[<p>此文效果全部用Html</p>
 <p style = "background: PowderBlue;text-align: center;">博客撰文</p>
 
@@ -756,7 +852,7 @@ eg:
   </entry>
   <entry>
     <title>图的连通</title>
-    <url>/PAT/2020/A1013/</url>
+    <url>/2020/02/24/A1013/</url>
     <content><![CDATA[<p><font size=4 color="red">没画示意图，美图镇楼</font><br>有向图、无向图与连通性、连通分量、连通图</p>
 <a id="more"></a>
 
@@ -790,7 +886,7 @@ eg:
   </entry>
   <entry>
     <title>博客雏形</title>
-    <url>/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/1/</url>
+    <url>/2020/02/23/1/</url>
     <content><![CDATA[<p>太不容易了TAT<br>花了一整天时间，终于搭建好了一个博客雏形，node.js + git + hexo结构，用github + gitee代理并国内外分流<br>主题采用大佬写的ayer（简单点来说，大佬做好了一切，我抄了这么久…..）</p>
 <a id="more"></a>
 <p style = "background: PowderBlue;text-align: center;">遇到了几个坑：</p>

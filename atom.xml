@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-01T15:21:19.719Z</updated>
+  <updated>2020-08-07T13:41:24.120Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,9 +17,114 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hadoop集群搭建</title>
+    <link href="http://yoursite.com/2020/08/07/3/"/>
+    <id>http://yoursite.com/2020/08/07/3/</id>
+    <published>2020-08-07T13:06:14.000Z</published>
+    <updated>2020-08-07T13:41:24.120Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以下均在root用户权限内操作&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hadoop" scheme="http://yoursite.com/categories/Hadoop/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu16.04初始</title>
+    <link href="http://yoursite.com/2020/08/07/1/"/>
+    <id>http://yoursite.com/2020/08/07/1/</id>
+    <published>2020-08-07T09:58:46.000Z</published>
+    <updated>2020-08-07T13:40:59.697Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;文章针对自己的虚拟机从零开始设置，更换源，安装ssh&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="http://yoursite.com/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python输出</title>
+    <link href="http://yoursite.com/2020/08/07/2/"/>
+    <id>http://yoursite.com/2020/08/07/2/</id>
+    <published>2020-08-07T09:54:00.000Z</published>
+    <updated>2020-08-07T12:43:54.066Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;设置代码编码格式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# -*- coding: UTF-8 -*-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;font color=&quot;red&quot; size=&quot;3&quot;&gt;&lt;/font&gt; python控制台中文输出&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="io" scheme="http://yoursite.com/tags/io/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构</title>
+    <link href="http://yoursite.com/2020/06/02/1/"/>
+    <id>http://yoursite.com/2020/06/02/1/</id>
+    <published>2020-06-02T10:10:08.000Z</published>
+    <updated>2020-06-02T13:03:50.490Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;6月21日要举行PAT考试了，第一次考主要为了熟悉下考场环境和编译，当然，能一次过最好啦~&lt;/p&gt;
+&lt;p&gt;因为数据结构忘得差不多了，所以在这里记录《数据结构》（第二版，陈越主编）的学习笔记，希望加深印象，为考研也打个基础&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="考研" scheme="http://yoursite.com/categories/%E8%80%83%E7%A0%94/"/>
+    
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="考研" scheme="http://yoursite.com/tags/%E8%80%83%E7%A0%94/"/>
+    
+  </entry>
+  
+  <entry>
     <title>h5格式</title>
-    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/ckawn5m080005qkk6c1b03qeg/"/>
-    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/ckawn5m080005qkk6c1b03qeg/</id>
+    <link href="http://yoursite.com/2020/06/01/ckdka48fm000iick6exyagzf5/"/>
+    <id>http://yoursite.com/2020/06/01/ckdka48fm000iick6exyagzf5/</id>
     <published>2020-06-01T14:10:01.000Z</published>
     <updated>2020-06-01T15:21:19.719Z</updated>
     
@@ -41,8 +146,8 @@
   
   <entry>
     <title>TensorFlow2.0</title>
-    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/"/>
-    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/</id>
+    <link href="http://yoursite.com/2020/05/25/2/"/>
+    <id>http://yoursite.com/2020/05/25/2/</id>
     <published>2020-05-25T06:51:30.000Z</published>
     <updated>2020-05-25T07:05:16.636Z</updated>
     
@@ -72,8 +177,8 @@
   
   <entry>
     <title>目标检测</title>
-    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/2020/1/"/>
-    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/2020/1/</id>
+    <link href="http://yoursite.com/2020/05/01/1/"/>
+    <id>http://yoursite.com/2020/05/01/1/</id>
     <published>2020-05-01T01:56:53.000Z</published>
     <updated>2020-05-03T02:15:18.219Z</updated>
     
@@ -105,8 +210,8 @@
   
   <entry>
     <title>python的numpy库</title>
-    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/"/>
-    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/2/</id>
+    <link href="http://yoursite.com/2020/04/29/2/"/>
+    <id>http://yoursite.com/2020/04/29/2/</id>
     <published>2020-04-29T00:48:09.000Z</published>
     <updated>2020-04-29T01:28:38.721Z</updated>
     
@@ -121,9 +226,9 @@
       <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="numpy库" scheme="http://yoursite.com/tags/numpy%E5%BA%93/"/>
     
@@ -131,8 +236,8 @@
   
   <entry>
     <title>神经网路向前与向后推导</title>
-    <link href="http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/1/"/>
-    <id>http://yoursite.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/1/</id>
+    <link href="http://yoursite.com/2020/04/28/1/"/>
+    <id>http://yoursite.com/2020/04/28/1/</id>
     <published>2020-04-28T13:56:04.000Z</published>
     <updated>2020-05-01T02:00:10.230Z</updated>
     
@@ -160,8 +265,8 @@
   
   <entry>
     <title>饥荒服务器搭建</title>
-    <link href="http://yoursite.com/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2020/1/"/>
-    <id>http://yoursite.com/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2020/1/</id>
+    <link href="http://yoursite.com/2020/03/30/1/"/>
+    <id>http://yoursite.com/2020/03/30/1/</id>
     <published>2020-03-30T12:20:43.000Z</published>
     <updated>2020-03-30T13:22:25.235Z</updated>
     
@@ -185,30 +290,9 @@
   </entry>
   
   <entry>
-    <title>软件文档第一次实验</title>
-    <link href="http://yoursite.com/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/2020/1/"/>
-    <id>http://yoursite.com/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/2020/1/</id>
-    <published>2020-02-28T02:02:25.000Z</published>
-    <updated>2020-04-28T13:59:12.083Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;软件文档之我见&quot;&gt;&lt;a href=&quot;#软件文档之我见&quot; class=&quot;headerlink&quot; title=&quot;软件文档之我见&quot;&gt;&lt;/a&gt;软件文档之我见&lt;/h1&gt;
-    
-    </summary>
-    
-    
-      <category term="软件文档" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/"/>
-    
-    
-      <category term="软件文档" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%96%87%E6%A1%A3/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SQL Server 2019 安装报错处理</title>
-    <link href="http://yoursite.com/SQLServer2019/2020/1/"/>
-    <id>http://yoursite.com/SQLServer2019/2020/1/</id>
+    <link href="http://yoursite.com/2020/02/26/1/"/>
+    <id>http://yoursite.com/2020/02/26/1/</id>
     <published>2020-02-26T04:37:43.000Z</published>
     <updated>2020-02-27T12:52:32.098Z</updated>
     
@@ -233,10 +317,10 @@
   
   <entry>
     <title>Hexo撰文2</title>
-    <link href="http://yoursite.com/Hexo%E5%8D%9A%E5%AE%A2/2020/2/"/>
-    <id>http://yoursite.com/Hexo%E5%8D%9A%E5%AE%A2/2020/2/</id>
+    <link href="http://yoursite.com/2020/02/24/2/"/>
+    <id>http://yoursite.com/2020/02/24/2/</id>
     <published>2020-02-24T04:57:56.000Z</published>
-    <updated>2020-02-24T11:18:32.951Z</updated>
+    <updated>2020-06-02T12:53:57.930Z</updated>
     
     <summary type="html">
     
@@ -256,8 +340,8 @@
   
   <entry>
     <title>Hexo撰文1</title>
-    <link href="http://yoursite.com/Hexo%E5%8D%9A%E5%AE%A2/2020/1/"/>
-    <id>http://yoursite.com/Hexo%E5%8D%9A%E5%AE%A2/2020/1/</id>
+    <link href="http://yoursite.com/2020/02/24/1/"/>
+    <id>http://yoursite.com/2020/02/24/1/</id>
     <published>2020-02-24T03:28:40.000Z</published>
     <updated>2020-02-24T13:36:44.256Z</updated>
     
@@ -283,8 +367,8 @@
   
   <entry>
     <title>图的连通</title>
-    <link href="http://yoursite.com/PAT/2020/A1013/"/>
-    <id>http://yoursite.com/PAT/2020/A1013/</id>
+    <link href="http://yoursite.com/2020/02/24/A1013/"/>
+    <id>http://yoursite.com/2020/02/24/A1013/</id>
     <published>2020-02-24T02:19:02.000Z</published>
     <updated>2020-02-24T13:39:42.818Z</updated>
     
@@ -308,8 +392,8 @@
   
   <entry>
     <title>博客雏形</title>
-    <link href="http://yoursite.com/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/1/"/>
-    <id>http://yoursite.com/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/2020/1/</id>
+    <link href="http://yoursite.com/2020/02/23/1/"/>
+    <id>http://yoursite.com/2020/02/23/1/</id>
     <published>2020-02-23T10:48:50.000Z</published>
     <updated>2020-02-23T14:07:10.836Z</updated>
     
