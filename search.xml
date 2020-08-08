@@ -187,7 +187,7 @@ int main(){
   </entry>
   <entry>
     <title>h5格式</title>
-    <url>/2020/06/01/ckdka48fm000iick6exyagzf5/</url>
+    <url>/2020/06/01/ckdl38uec000ckwk6cvqsbrv3/</url>
     <content><![CDATA[<p><font color = 'red'>打印数据存在问题</font></p>
 <h1 id="h5简介"><a href="#h5简介" class="headerlink" title="h5简介"></a>h5简介</h1><p>背景：CV、DL等涉及神经网络的各模型，卷积层和全连接层往往有很多神经元，训练完模型后，大量的weights的存储，可以使用h5格式存储</p>
 <p>HDF（Hierarchical Data Format）<strong>层次数据格式</strong>指一种为存储和处理大容量科学数据设计的文件格式及相应库文件</p>
@@ -346,8 +346,8 @@ AttributeError: &apos;slice&apos; object has no attribute &apos;encode&apos;</co
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>深度学习</tag>
+        <tag>python</tag>
         <tag>numpy库</tag>
       </tags>
   </entry>
