@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    数据结构 |  朩
+    h5格式 |  朩
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -32,7 +32,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-数据结构" class="article article-type-post" itemscope
+  <article id="post-h5格式" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -40,7 +40,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  数据结构
+  h5格式
 </h1>
   
 
@@ -49,12 +49,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/06/02/1/" class="article-date">
-  <time datetime="2020-06-02T10:10:08.000Z" itemprop="datePublished">2020-06-02</time>
+      <a href="/2020/06/01/ckeksqt1s000iqck6his5cugs/" class="article-date">
+  <time datetime="2020-06-01T14:10:01.000Z" itemprop="datePublished">2020-06-01</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%80%83%E7%A0%94/">考研</a>
+    <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
   </div>
 
       
@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">671字</span>
+            <span class="post-count">356字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2分钟</span>
+            <span class="post-count">1分钟</span>
         </span>
     </span>
 </div>
@@ -100,49 +100,41 @@
       
 
       
-      <p>6月21日要举行PAT考试了，第一次考主要为了熟悉下考场环境和编译，当然，能一次过最好啦~</p>
-<p>因为数据结构忘得差不多了，所以在这里记录《数据结构》（第二版，陈越主编）的学习笔记，希望加深印象，为考研也打个基础</p>
+      <p><font color = 'red'>打印数据存在问题</font></p>
+<h1 id="h5简介"><a href="#h5简介" class="headerlink" title="h5简介"></a>h5简介</h1><p>背景：CV、DL等涉及神经网络的各模型，卷积层和全连接层往往有很多神经元，训练完模型后，大量的weights的存储，可以使用h5格式存储</p>
+<p>HDF（Hierarchical Data Format）<strong>层次数据格式</strong>指一种为存储和处理大容量科学数据设计的文件格式及相应库文件</p>
 <a id="more"></a>
+<h2 id="h5读取"><a href="#h5读取" class="headerlink" title="h5读取"></a>h5读取</h2><h3 id="神经网络读取"><a href="#神经网络读取" class="headerlink" title="神经网络读取"></a>神经网络读取</h3><p>此处顺便记录一下tf2用class定义网络</p>
+<pre><code>import tensorflow as tf
+from tensorflow.keras.models import Model
+###方式1：使用Class###
+Class model(Model):
+    def __init__(self):
+        super(model, self).__init__
+        self.cbapd()=..... #八股定义CBAPD
+    def call(self)
+        x = self.cbapd(x)
+        y = self.cbapd(x)
 
-<h1 id="第一章————概论"><a href="#第一章————概论" class="headerlink" title="第一章————概论"></a>第一章————概论</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><ol>
-<li><p>提出了 数据结构的定义 有很多，最简单的是A.Shaffer的“数据结构是ADT（抽象数据类型）的物理实现”</p>
-</li>
-<li><p>举出打印数字的例子，比较循环和递归的效率（递归开销更大，要等待调用函数得到结果才释放内存）</p>
-</li>
-<li><p>用<font size="4" color="red">clock()工具</font> 展现秦九韶算法的优越性</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;time.h&gt;
-clock_t start, stop; //clock_t是clock()函数返回的函数变量
-//
-//返回的时间单位是clock tick（时间打点），常数CLK_TCK（或CLOCK_PER_SEC)为机器时钟每秒走的时间打点数
-//
-double duration; //记录函数运行时间，单位为秒
-int main(){
-    start = clock() //开始计时
-    function; //被测函数
-    stop = clock() //结束计时
-    duration = ((double)(stop - start))/CLK_TCK //计算运行时间
-    //如果运行时间比较短，小于两次时钟打点，可以用for运行多次
-    return 0;
-}</code></pre></li>
-</ol>
-<h2 id="数据结构定义"><a href="#数据结构定义" class="headerlink" title="数据结构定义"></a>数据结构定义</h2><p><strong>数据结构 = 数据对象在计算机中的组织方式 + 对数据对象的操作</strong></p>
-<p>数据对象在计算机中的组织方式：</p>
-<ul>
-<li>数据对象集的逻辑结构（线性、树状等）</li>
-<li>数据对象集在计算机中的物理存储结构（数组、链表等）</li>
-</ul>
-<p><strong>抽象数据类型（Abstract Data Type）是对数据结构的抽象描述</strong></p>
-<p>eg:<br>类型名称：矩阵<br>对象数据集：一个mXn矩阵三元组，每个符号代表含义<br>操作集：函数定义和返回类型</p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p><strong>定义：算法是一个有限指令集，接受一些输入（有些情况不需要输入），产生输出，并在一定有限步骤后终止</strong></p>
-<ul>
-<li>每一条指令必须有充分明确的目标，不可以有歧义</li>
-<li>必须在计算机处理的范围之内</li>
-<li>描述不依赖于任何一种计算机语言以及具体的实现手段</li>
-</ul>
-<p><strong>空间复杂度 S(n)</strong>:程序在执行时占用存储单元的长度。往往与输入数据的规模n有关。过高可能内存超限，非正常中断<br><strong>时间复杂度 T(n)</strong>:程序执行时耗费时间的长度。往往也和输入数据规模n有关，过高则效率低，运行慢</p>
-<p><font size="5" color="red">P10的1.3.2算法复杂度没看完</font></p>
-<h1 id="第二章————数据结构实现基础"><a href="#第二章————数据结构实现基础" class="headerlink" title="第二章————数据结构实现基础"></a>第二章————数据结构实现基础</h1>
+###方式2：函数返回Class###
+def model(train, validate):
+    x = cbapd(train)
+    y = cbapd(x)
+    return Model(x, y, name = &apos;model&apos;)
+
+if __name__ == &apos;__main__&apos;:
+model = model()
+model.load_weights(&apos;weights.h5&apos;)</code></pre><h3 id="打印内容"><a href="#打印内容" class="headerlink" title="打印内容"></a>打印内容</h3><p>使用h5py库类似excel的读取（类似一个map,拥有多个key，每个key对应value)</p>
+<pre><code>import h5py
+import numpy as np
+f = h5py.File(&apos;weights.h5&apos;, &apos;r&apos;) #用只读方式 打开h5文件
+print(f.keys()) #打印所有的key
+for key in f.keys():
+    data = np.array(f[key])
+    print(data)</code></pre><p><font color="red">不明原因报错</font><br>根据报错信息，应该是data里面有数据的类型不支持译码为ascii（可能是个例）</p>
+<pre><code>运行时候  File &quot;D:\programming\python\lib\site-packages\h5py\_hl\base.py&quot;, line 137, in _e
+name = name.encode(&apos;ascii&apos;)
+AttributeError: &apos;slice&apos; object has no attribute &apos;encode&apos;</code></pre>
       
       <!-- reward -->
       
@@ -154,7 +146,7 @@ int main(){
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/h5/" rel="tag">h5</a></li></ul>
 
 
     </footer>
@@ -165,19 +157,19 @@ int main(){
   
   <nav class="article-nav">
     
-      <a href="/2020/08/07/2/" class="article-nav-link">
+      <a href="/2020/06/02/1/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Python输出
+            数据结构
           
         </div>
       </a>
     
     
-      <a href="/2020/06/01/ckeksqt1s000iqck6his5cugs/" class="article-nav-link">
+      <a href="/2020/05/25/2/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">h5格式</div>
+        <div class="article-nav-title">TensorFlow2.0</div>
       </a>
     
   </nav>
