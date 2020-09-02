@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>tecent后台开发</title>
+    <title>鹅厂后台开发应聘</title>
     <url>/2020/09/02/1/</url>
     <content><![CDATA[<p>想了想，还是对腾讯招聘事情纪念一下</p>
 <a id="more"></a>
@@ -771,7 +771,7 @@ int main(){
   </entry>
   <entry>
     <title>h5格式</title>
-    <url>/2020/06/01/ckeksqt1s000iqck6his5cugs/</url>
+    <url>/2020/06/01/ckekwd4ri000aick65sq9b7ch/</url>
     <content><![CDATA[<p><font color = 'red'>打印数据存在问题</font></p>
 <h1 id="h5简介"><a href="#h5简介" class="headerlink" title="h5简介"></a>h5简介</h1><p>背景：CV、DL等涉及神经网络的各模型，卷积层和全连接层往往有很多神经元，训练完模型后，大量的weights的存储，可以使用h5格式存储</p>
 <p>HDF（Hierarchical Data Format）<strong>层次数据格式</strong>指一种为存储和处理大容量科学数据设计的文件格式及相应库文件</p>
