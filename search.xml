@@ -3,7 +3,8 @@
   <entry>
     <title>吴恩达机器学习笔记-1</title>
     <url>/2020/10/11/1/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>下次看P5</p>
+<a id="more"></a>
 
 <h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>定义：Tom Mitchell (1998): A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
 <p>核心要素：</p>
@@ -24,6 +25,12 @@
 <li>降维：PCA和SVD（奇异值分解， Singular Value Decomposition）等</li>
 </ul>
 </li>
+</ul>
+<h3 id="监督学习基本构成"><a href="#监督学习基本构成" class="headerlink" title="监督学习基本构成"></a>监督学习基本构成</h3><ul>
+<li>Hypothesis（假设函数）：由训练集训练得出</li>
+<li>Parameters（参数）：假设函数中的参数</li>
+<li>Cost Function（损失函数）：预测结果与真实结果差值得到的损失。eg:平方损失函数</li>
+<li>Goal（目标）：对假设函数调参的最终目标。eg:损失函数最小</li>
 </ul>
 ]]></content>
       <categories>
@@ -1015,7 +1022,7 @@ int main(){
   </entry>
   <entry>
     <title>h5格式</title>
-    <url>/2020/06/01/ckg4hvjws000pi8k6cfdk4vfm/</url>
+    <url>/2020/06/01/ckg4qzlti0008iok6ccq1ew53/</url>
     <content><![CDATA[<p><font color = 'red'>打印数据存在问题</font></p>
 <h1 id="h5简介"><a href="#h5简介" class="headerlink" title="h5简介"></a>h5简介</h1><p>背景：CV、DL等涉及神经网络的各模型，卷积层和全连接层往往有很多神经元，训练完模型后，大量的weights的存储，可以使用h5格式存储</p>
 <p>HDF（Hierarchical Data Format）<strong>层次数据格式</strong>指一种为存储和处理大容量科学数据设计的文件格式及相应库文件</p>
@@ -1203,10 +1210,10 @@ AttributeError: &apos;slice&apos; object has no attribute &apos;encode&apos;</co
 <p>本次使用的是python做神经网络的模拟推导（没研究markdown的数学符号，就在草稿纸上写的），使用了numpy库（具体内容会在另一篇博客中）</p>
 <p style = "background: PowderBlue;text-align: center;">以下为推导过程</p>
 
-<img src="../../../img/DeepLearning/1.png">
-<img src="../../../img/DeepLearning/2.png">
-<img src="../../../img/DeepLearning/3.png">
-<img src="../../../img/DeepLearning/4.png">
+<img src="/img/DeepLearning/1.png">
+<img src="/img/DeepLearning/2.png">
+<img src="/img/DeepLearning/3.png">
+<img src="/img/DeepLearning/4.png">
 
 <p>图中推导为草稿部分，所以写得不太工整和详细</p>
 <p style = "background: PowderBlue;text-align: center;">推导过程结束</p>
