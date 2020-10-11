@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-09-02T04:43:54.601Z</updated>
+  <updated>2020-10-11T01:56:41.914Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>吴恩达机器学习笔记-1</title>
+    <link href="http://yoursite.com/2020/10/11/1/"/>
+    <id>http://yoursite.com/2020/10/11/1/</id>
+    <published>2020-10-11T00:53:03.000Z</published>
+    <updated>2020-10-11T01:56:41.914Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;机器学习&quot;&gt;&lt;a href=&quot;#机器学习&quot; class=&quot;headerlink&quot; title=&quot;机器学习&quot;&gt;&lt;/a&gt;机器学习&lt;/h2&gt;&lt;p&gt;定义：Tom Mitchell (1998): A computer program
+        
+      
+    
+    </summary>
+    
+    
+      <category term="机器学习课程" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+      <category term="机器学习课程" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/"/>
+    
+      <category term="吴恩达" scheme="http://yoursite.com/tags/%E5%90%B4%E6%81%A9%E8%BE%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python入门-1</title>
+    <link href="http://yoursite.com/2020/10/06/1/"/>
+    <id>http://yoursite.com/2020/10/06/1/</id>
+    <published>2020-10-06T01:23:40.000Z</published>
+    <updated>2020-10-11T01:53:52.019Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;闲来无事，随便读点书籍（凭缘分拿啦）&lt;/p&gt;
+&lt;p&gt;以下测试代码均在python3.7.0集成环境下运行&lt;/p&gt;
+&lt;p&gt;《Python3.7网络爬虫快速入门》 王启明 清华大学出版社&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>鹅厂后台开发应聘</title>
@@ -144,8 +198,8 @@
   
   <entry>
     <title>h5格式</title>
-    <link href="http://yoursite.com/2020/06/01/ckekwd4ri000aick65sq9b7ch/"/>
-    <id>http://yoursite.com/2020/06/01/ckekwd4ri000aick65sq9b7ch/</id>
+    <link href="http://yoursite.com/2020/06/01/ckg4hvjws000pi8k6cfdk4vfm/"/>
+    <id>http://yoursite.com/2020/06/01/ckg4hvjws000pi8k6cfdk4vfm/</id>
     <published>2020-06-01T14:10:01.000Z</published>
     <updated>2020-06-01T15:21:19.719Z</updated>
     

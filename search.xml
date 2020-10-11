@@ -1,6 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>吴恩达机器学习笔记-1</title>
+    <url>/2020/10/11/1/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>定义：Tom Mitchell (1998): A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
+<p>核心要素：</p>
+<ul>
+<li>E：经验。eg：观察已标记好类别的图像</li>
+<li>T：目的。eg：对图像进行分类</li>
+<li>P：性能度量（评判指标）。eg:例如分类正确的数量</li>
+</ul>
+<p>包括监督学习和非监督学习：</p>
+<ul>
+<li>监督学习（Supervised Learning）：利用一组已知类别的样本调整分类器的参数，使其达到所要求性能的过程<ul>
+<li>回归（Regression）</li>
+<li>分类（Classification）</li>
+</ul>
+</li>
+<li>无监督学习（Unsupervised Learning）：根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题<ul>
+<li>聚类（Clustering）</li>
+<li>降维：PCA和SVD（奇异值分解， Singular Value Decomposition）等</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习课程</category>
+      </categories>
+      <tags>
+        <tag>机器学习课程</tag>
+        <tag>吴恩达</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python入门-1</title>
+    <url>/2020/10/06/1/</url>
+    <content><![CDATA[<p>闲来无事，随便读点书籍（凭缘分拿啦）</p>
+<p>以下测试代码均在python3.7.0集成环境下运行</p>
+<p>《Python3.7网络爬虫快速入门》 王启明 清华大学出版社</p>
+<a id="more"></a>
+
+<h1 id="一、-简介"><a href="#一、-简介" class="headerlink" title="一、 简介"></a>一、 简介</h1><h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h2><p>python是一种解释型、交互式、面向对象的程序设计语言</p>
+<ul>
+<li>解释型：开发过程中可以没有编译环节</li>
+<li>交互式：开发者在开发环境中写入代码，即刻可以得到反馈结果</li>
+<li>面向对象：支持代码封装成对象的面向对象的程序设计方式</li>
+</ul>
+<h1 id="二、-语法速览"><a href="#二、-语法速览" class="headerlink" title="二、 语法速览"></a>二、 语法速览</h1><h2 id="2-1-数据类型与变量"><a href="#2-1-数据类型与变量" class="headerlink" title="2.1 数据类型与变量"></a>2.1 数据类型与变量</h2><ul>
+<li>整数和浮点数在计算机内部存储方式不同，整数运算永远正确，浮点数运算可能存在误差</li>
+<li>布尔值是字母大写（True，False），1表示True，0表示False，其他数字均不表示</li>
+<li>空值为None</li>
+</ul>
+<h2 id="2-2-运算符"><a href="#2-2-运算符" class="headerlink" title="2.2 运算符"></a>2.2 运算符</h2><ol>
+<li><p>算数运算符</p>
+<p>包含 + - * / % 和 ** 和 // 七种运算符</p>
+<ul>
+<li>/：返回的是真实结果，而不是取整结果。比如：-10/3=-3.33333</li>
+<li>%：和C++效果相同，返回的值为正数。如：-10%3=2，10%-3=-2</li>
+<li>**：乘方，类似pow，两个数字均可为浮点数。如：2**3=8，2**-1=0.5</li>
+<li>//：返回除法的商.如：-10//3=-4，10//-3=-4</li>
+</ul>
+</li>
+<li><p>比较运算符</p>
+<p>包含 == != &lt;&gt; &gt; &lt; &gt;= &lt;=七种运算符，返回结果为布尔类型，True或False</p>
+<ul>
+<li>&lt;&gt;:不等，比较两个对象是否不相等</li>
+</ul>
+</li>
+<li><p>赋值运算符</p>
+<ul>
+<li>=:最简单的赋值运算符，将右边的值赋给左边的变量</li>
+</ul>
+<p>复合运算符：</p>
+<ul>
+<li>赋值号前加上算数运算符，所以一共七种</li>
+<li>表示将复合赋值运算符右边的值与左边变量的值经过相应的数学运算（忽略等号然后计算）再赋给左边的变量</li>
+</ul>
+</li>
+<li><p>逻辑运算符</p>
+<p>对布尔值True和False进行运算，结果仍为布尔值<br>包含 and or not（对单布尔值进行操作）</p>
+</li>
+<li><p>位运算符</p>
+<p>将操作数按二进制位对位进行运算，再返回结果。<br>包含 &amp; | ^ ~ &lt;&lt; &gt;&gt;</p>
+<ul>
+<li>^:按位异或（不同则取1）</li>
+<li>~：按位取反，只有一个操作数。 <strong>即一个有符号二进制数的补码形式</strong></li>
+</ul>
+</li>
+<li><p>成员运算符</p>
+<p>判断摸个之是否存在于字符串、列表、元组等制定对象中，返回结果为布尔值<br>包含 in 和 not in</p>
+</li>
+<li><p>身份运算符</p>
+<p>用于比较两个对象的存储单元，返回结果为布尔值<br>只有is</p>
+<ul>
+<li>is用于判断两个变量引用对象是否为同一个</li>
+<li>==用于判断变量的值是否相等</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-3-复合类型"><a href="#2-3-复合类型" class="headerlink" title="2.3 复合类型"></a>2.3 复合类型</h2><p>包括列表、元组、字典、集合等</p>
+<h3 id="2-3-1-列表"><a href="#2-3-1-列表" class="headerlink" title="2.3.1 列表"></a>2.3.1 列表</h3><p>list是Python最常用的数据类型，数据项（元素）不需要相同的数据类型，可以随时增删</p>
+<h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><p>用中括号括起来，逗号分隔不同的数据项</p>
+<pre><code>list1 = [&apos;a&apos;, 1, True]</code></pre><p>下标从0开始，-1表示最后一个元素，-2表示倒数第二个。</p>
+<h4 id="增"><a href="#增" class="headerlink" title="增"></a>增</h4><ol>
+<li>list.append(object)：列表末尾添加一个新的对象</li>
+<li>list.extend(list)：列表末尾添加一个列表（或者多个元素）</li>
+<li>list.insert(index, object)：在index位置插入指定对象</li>
+</ol>
+<h4 id="删"><a href="#删" class="headerlink" title="删"></a>删</h4><ol>
+<li>list.pop(?index)：不填写参数默认删除最后一个元素。返回被删除元素的值。</li>
+<li>list.remove(object)：删除列表中相匹配的第一个值。没有返回，未找到会报错（用in判断）</li>
+<li>del list[index]：删除对应索引的元素。无返回</li>
+</ol>
+<h4 id="改"><a href="#改" class="headerlink" title="改"></a>改</h4><p>list[index] = object：根据索引直接赋值</p>
+<h4 id="查"><a href="#查" class="headerlink" title="查"></a>查</h4><ol>
+<li>list[index]：根据索引直接查询</li>
+<li>list[start:end]：遍历索引，区域查询，左闭右开。索引值可以为负数</li>
+<li>list.index(object)：返回第一个匹配object的元素索引。未找到会报错</li>
+<li>max(list)和min(list)：返回列表中的最大或者最小值</li>
+</ol>
+<h4 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h4><ol>
+<li>list.count(object)：返回某元素在列表中的出现次数。未找到返回0</li>
+<li>len(list)：返回列表中的元素个数</li>
+</ol>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><ol>
+<li>list.reverse()：反转列表。无返回</li>
+<li>list.sort(key = None, reverse = False)：默认对列表升序排序</li>
+</ol>
+<p>其中，key为排序的关键字，类似c++中的自定义cmp方法。python中多使用匿名函数lambda，实现多级列表、多级排序（逗号分隔）等</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ol>
+<li>list.copy()：复制列表，返回值为列表内容。一般作为右值</li>
+<li>list.clear()：清空列表。无返回值</li>
+</ol>
+<h3 id="2-3-2-元组"><a href="#2-3-2-元组" class="headerlink" title="2.3.2 元组"></a>2.3.2 元组</h3><p>Tuple也是一种特殊的符合类型列表。一旦定义后，不能改变，不能执行增删改等操作。其他操作与列表一样。</p>
+<p>创建：用小括号括起来</p>
+<pre><code>mood = (&apos;happy&apos;, &apos;sad&apos;)</code></pre><h3 id="2-3-3-字典"><a href="#2-3-3-字典" class="headerlink" title="2.3.3 字典"></a>2.3.3 字典</h3><p>Dict是Python中关联型的容器类型</p>
+<p>创建：使用大括号（花括号）括起来，每一个元素是一对Key与Value，中间以冒号分隔</p>
+<pre><code>info = {&apos;name&apos;:&apos;hehao&apos;, &apos;age&apos; : 20, &apos;sex&apos; : &apos;man&apos;}</code></pre><p>其中Key的类型只能是常量类型，不能为可变类型。Key的值不能重复。</p>
+<h3 id="2-3-4-集合"><a href="#2-3-4-集合" class="headerlink" title="2.3.4 集合"></a>2.3.4 集合</h3><p>Set是无序并唯一地存放容器元素的类型。</p>
+<p>创建：使用小括号将一个列表括起来（相当于字典Keys）</p>
+<pre><code>shown = set([1, 2, 3])</code></pre><h4 id="集合间运算"><a href="#集合间运算" class="headerlink" title="集合间运算"></a>集合间运算</h4><ul>
+<li>&amp;：求两个集合交集</li>
+<li>|：求两个集合并集</li>
+<li>-：求两个集合的差</li>
+<li>^：求两个集合的补</li>
+</ul>
+<h4 id="增删"><a href="#增删" class="headerlink" title="增删"></a>增删</h4><ul>
+<li>add(key)：添加集合元素</li>
+<li>remove(key)：删除集合元素</li>
+</ul>
+<h2 id="2-4-其他语法注意点"><a href="#2-4-其他语法注意点" class="headerlink" title="2.4 其他语法注意点"></a>2.4 其他语法注意点</h2><ul>
+<li><p>for中常用的range：range(start = 0, end, step = 1)是一个左闭右开的整数列表</p>
+</li>
+<li><p>input(?str)：可选参数str为打印在控制台的提示语句。从键盘读入输入，默认返回类型为字符串，可以用强制类型转换</p>
+<pre><code>x = int(input())</code></pre></li>
+<li><p>print函数的.format：类似c中的printf函数，但是形参统一用空的大括号表示，.format内排列值，逗号分隔</p>
+<pre><code>print(&quot;I am a {}, {} years old now.&quot;.format(&quot;man&quot;, 20))
+# 字典
+info = {&apos;name&apos;:&apos;hehao&apos;, &apos;age&apos; : 20, &apos;sex&apos; : &apos;man&apos;}
+print(&quot;I am a {sex}, {age} years old now.&quot;.format(**info))
+# 列表
+list1 = [20, &apos;boy&apos;]
+print(&quot;I am a {0[1]}, {0[0]} years old now.&quot;.format(list1)) # 0表示第一个format中第一个参数，[]内为index
+# 对象，类似列表，但是把[index]改为 .attribute</code></pre></li>
+</ul>
+<h1 id="三、-lxml与XPath语法"><a href="#三、-lxml与XPath语法" class="headerlink" title="三、 lxml与XPath语法"></a>三、 lxml与XPath语法</h1><p>lxml是一个HTML/XML的解析器，主要功能为解析和提取HTML/XML数据</p>
+<p>XPath（XML Path Language， XML路径语言）是一门在XML文档中查找信息的语言，可用在XML文档中对元素和属性进行遍历</p>
+<h2 id="XPath基本语法"><a href="#XPath基本语法" class="headerlink" title="XPath基本语法"></a>XPath基本语法</h2><table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nodename</td>
+<td align="center">选择此节点的所有子节点</td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="center">从当前根节点选取</td>
+</tr>
+<tr>
+<td align="center">//</td>
+<td align="center">从文档中中选择匹配当前节点的节点</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">选择当前节点</td>
+</tr>
+<tr>
+<td align="center">..</td>
+<td align="center">选择当前节点的父节点</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center">选择属性</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">通配符，选择所有元素节点与元素名</td>
+</tr>
+<tr>
+<td align="center">@*</td>
+<td align="center">选择所有属性</td>
+</tr>
+<tr>
+<td align="center">[@attrib]</td>
+<td align="center">选取具有指定属性的所有元素</td>
+</tr>
+<tr>
+<td align="center">[@attrib=’value’]</td>
+<td align="center">选取指定属性具有匹配值的所有元素</td>
+</tr>
+<tr>
+<td align="center">[tag]</td>
+<td align="center">选取所有具有指定元素的直接子节点</td>
+</tr>
+<tr>
+<td align="center">[tag=’text’]</td>
+<td align="center">选取所有具有指定元素的直接子节点</td>
+</tr>
+</tbody></table>
+<p>使用XPath解析：</p>
+<ol>
+<li><p>获取HTML字符串：使用requests库的get</p>
+<pre><code>import requests
+url = &quot;***&quot;
+headers = {&apos;user-agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; WOW64)&apos;}
+response = requests.get(url = url, headers = headers) # 发起连接请求
+text = response.text # 返回Unicode型数据</code></pre></li>
+<li><p>初始化一个XPath解析对象</p>
+<pre><code>from lxml import etree
+html = etree.HTML(text) # 转换为HTML格式</code></pre></li>
+</ol>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>鹅厂后台开发应聘</title>
     <url>/2020/09/02/1/</url>
     <content><![CDATA[<p>想了想，还是对腾讯招聘事情纪念一下</p>
@@ -771,7 +1015,7 @@ int main(){
   </entry>
   <entry>
     <title>h5格式</title>
-    <url>/2020/06/01/ckekwd4ri000aick65sq9b7ch/</url>
+    <url>/2020/06/01/ckg4hvjws000pi8k6cfdk4vfm/</url>
     <content><![CDATA[<p><font color = 'red'>打印数据存在问题</font></p>
 <h1 id="h5简介"><a href="#h5简介" class="headerlink" title="h5简介"></a>h5简介</h1><p>背景：CV、DL等涉及神经网络的各模型，卷积层和全连接层往往有很多神经元，训练完模型后，大量的weights的存储，可以使用h5格式存储</p>
 <p>HDF（Hierarchical Data Format）<strong>层次数据格式</strong>指一种为存储和处理大容量科学数据设计的文件格式及相应库文件</p>
