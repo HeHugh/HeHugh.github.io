@@ -113,7 +113,7 @@
 <p>没用啊！</p>
 <p>然后才知道，要删除注册表 “PendingFileRenameOperations” <font size="2.5" color="00AAAA">（注册表打开方式见文末）</font></p>
 <p>路径：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager</p>
-<img src="../../../img/MSSQL/1.png">
+<img src="/img/MSSQL/1.png">
 
 <p>（图中已经删了，这个注册表应该在箭头处。它不在Session Manager目录的子文件夹内，而是在一个文件，不要在左边找）</p>
 <p>然后就美滋滋安装了</p>
@@ -121,7 +121,7 @@
 <h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h3><p>如果安装R和Python深度学习功能，就会发现：在最后下载几个.cab文件，明明不大，但是却会卡好久…..</p>
 <p>“完成但错误”，这有锤子用啊！我又用不了，就像 给我下载一个快捷方式但是不给我文件…</p>
 <p>然后根据报错信息，去 C:\Program Files\Microsoft SQL Server\150\Setup Bootstrap\Log 找它的安装记录</p>
-<img src="../../../img/MSSQL/2.png">
+<img src="/img/MSSQL/2.png">
 
 <p>报错信息总结一下：安装 SRS 和 SPO 获取资源超时（写着像是存储失败，但是同一个文件夹，其他的东西可以存进去，这个文件不能存进去，不大现实）</p>
 <ul>
@@ -134,18 +134,18 @@
 <p>首先要来<a href="https://docs.microsoft.com/en-us/sql/advanced-analytics/install/sql-ml-component-install-without-internet-access?view=sql-server-ver15" target="_blank" rel="noopener">下载机器学习的R语言和Python包</a>，将下载的.cab文件放在一个文件夹下</p>
 <p>然后要在“添加与删除”（win10叫“应用与程序”）选择卸载Microsoft SQL Server 2019</p>
 <p>在卸载界面卸载R与Python组件</p>
-<img src="../../../img/MSSQL/3.png">
+<img src="/img/MSSQL/3.png">
 
 <p>成功卸载</p>
-<img src="../../../img/MSSQL/4.png">
+<img src="/img/MSSQL/4.png">
 
 <h3 id="离线安装"><a href="#离线安装" class="headerlink" title="离线安装"></a>离线安装</h3><p>按照下载界面提示重新进入安装界面，<font size="4" color="red">断网！</font></p>
 <p>按照引导会让我们选择目标文件夹，选择下载的.cab文件所在的文件夹即可</p>
 <p>由于我是中文版，语言应为2052（简体中文），而下载的包语言为1033（英文），故需要<font size="3" color="red">把包的每一个名字最后的1033改为2052</font>，不然无法识别</p>
 <p>然后点击下一步，等待软件安装完毕即可</p>
-<img src="../../../img/MSSQL/5.png">
+<img src="/img/MSSQL/5.png">
 
-<p>美滋滋，安装成功！<br><img src="../../../img/MSSQL/6.png"></p>
+<p>美滋滋，安装成功！<br><img src="/img/MSSQL/6.png"></p>
 <h2 id="文末"><a href="#文末" class="headerlink" title="文末"></a>文末</h2><p style = "background: PowderBlue;text-align: center;">注册表管理</p>
 
 <ul>
